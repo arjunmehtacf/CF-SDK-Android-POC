@@ -40,3 +40,25 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
+
+publishing {
+    publications{
+        bar(MavenPublication){
+            groupId "com.changefinancial"
+            artifactId "sdkpoc"
+            version "1.0.0"
+            artifact("$buildDir/outputs/aar/cf_sdk-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            name "GitHubPackages"
+            url uri("https://maven.pkg.github.com/arjunmehtacf/CF-SDK-Android-POC")
+            credentials{
+                username = "arjunmehtacf"
+                password = "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"
+            }
+        }
+    }
+}
