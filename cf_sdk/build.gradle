@@ -18,7 +18,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -46,7 +46,7 @@ publishing {
         bar(MavenPublication){
             groupId "com.changefinancial"
             artifactId "sdkpoc"
-            version "1.0.0"
+            version "1.0.3"
             artifact("$buildDir/outputs/aar/cf_sdk-release.aar")
         }
     }
@@ -56,8 +56,8 @@ publishing {
             name "GitHubPackages"
             url uri("https://maven.pkg.github.com/arjunmehtacf/CF-SDK-Android-POC")
             credentials{
-                username = "arjunmehtacf"
-                password = "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"
+                username = System.getenv("USERNAME_GITHUB")
+                password = System.getenv("TOKEN_GITHUB")
             }
         }
     }
