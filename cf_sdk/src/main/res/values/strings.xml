@@ -1,0 +1,46 @@
+<resources>
+
+
+<!--    Strings for ChangeBankSDK -->
+    <string name="sdk_error_required_field">Required Field.</string>
+    <string name="sdk_error_invalid_transaction">There was an issue fetching the transaction</string>
+    <string name="sdk_error_username_not_found">Username not found</string>
+    <string name="sdk_error_phone_length">Invalid length.</string>
+    <string name="sdk_error_phone_code">Invalid code.</string>
+    <string name="sdk_error_address_invalid">Address is not valid.</string>
+    <string name="sdk_error_email_invalid">Email is not valid.</string>
+    <string name="sdk_error_account_not_found">Account not found.</string>
+    <string name="sdk_error_banks_not_found">Banks not found.</string>
+    <string name="sdk_error_document_not_found">Document not found.</string>
+    <string name="error_document_not_available">Document not available</string>
+    <string name="sdk_error_card_not_found">Card not found.</string>
+    <string name="base_error">An error occurred, please try again later.</string>
+    <string name="email_not_valid">Email is not valid</string>
+    <string name="member_credentials_expired">Your session has ended, you will have to log in again.</string>
+    <string name="password_not_valid">Incorrect Password</string>
+    <string name="phone_not_valid">Phone number is not valid</string>
+    <string name="pin_not_valid">Pin not valid</string>
+    <string name="pin_incorrect">Incorrect Pin Entered</string>
+    <string name="pin_not_set">Pin not set</string>
+    <string name="sdk_error_username_short">Username must have at least 4 characters.</string>
+    <string name="sdk_error_username_long">Username must have less then or equal to 20 characters.</string>
+    <string name="sdk_error_white_space">Can not contain spaces.</string>
+    <string name="sdk_error_username_invalid_characters">Username can include letters, numbers, hyphen, and underscore.</string>
+    <string name="sdk_error_usernmae_invalid_first_char">Username must not begin with \"_\" or \"-\".</string>
+    <string name="sdk_error_login_invalid">Can\'t find credentials</string>
+    <string name="sdk_error_password_character"><![CDATA[Must contain one of these special characters @$!%*#?&=-+~^]]></string>
+    <string name="sdk_error_password_letter">Must contain one upper case letter</string>
+    <string name="sdk_error_password_number">Must contain one number</string>
+    <string name="sdk_error_password_length">Minimum 8 characters and no whitespaces</string>
+    <string name="sdk_error_transfer_from_required">Select transfer from.</string>
+    <string name="sdk_error_transfer_to_required">Select transfer to.</string>
+    <string name="sdk_error_transfer_amount_required">Transfer amount must be specified.</string>
+    <string name="ach_link_max_retry">Your account could not be linked at this moment. Please, try again later</string>
+    <string name="sdk_error_passcode_length">Invalid passcode length.</string>
+    <string name="sdk_error_passcode_number_only">Passcode must contain only digits.</string>
+
+<!--    END STRINGS FOR CHANGE BANK SDK PACKAGE -->
+
+    <string name="google_places_address_autocomplete">AIzaSyAoMDv-2ukRptuOCFvckU6mLovPu6-LWAk</string>
+
+</resources>
