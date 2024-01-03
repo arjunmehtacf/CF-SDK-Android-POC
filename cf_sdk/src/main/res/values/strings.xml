@@ -1,7 +1,5 @@
 <resources>
-
-
-<!--    Strings for ChangeBankSDK -->
+    <string name="app_name">changebanksdk</string>
     <string name="sdk_error_required_field">Required Field.</string>
     <string name="sdk_error_invalid_transaction">There was an issue fetching the transaction</string>
     <string name="sdk_error_username_not_found">Username not found</string>
@@ -38,9 +36,5 @@
     <string name="ach_link_max_retry">Your account could not be linked at this moment. Please, try again later</string>
     <string name="sdk_error_passcode_length">Invalid passcode length.</string>
     <string name="sdk_error_passcode_number_only">Passcode must contain only digits.</string>
-
-<!--    END STRINGS FOR CHANGE BANK SDK PACKAGE -->
-
-    <string name="google_places_address_autocomplete">AIzaSyAoMDv-2ukRptuOCFvckU6mLovPu6-LWAk</string>
 
 </resources>
