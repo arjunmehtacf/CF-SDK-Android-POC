@@ -1,9 +1,9 @@
-package com.example.sdk_no_dagger.changebankapi.network
+package com.example.cf_sdk.changebankapi.network
 
 
 import com.example.cf_sdk.changebankapi.model.account.Money
 import com.example.cf_sdk.changebankapi.network.api.ApiConfig
-import com.example.sdk_no_dagger.changebankapi.util.MoneyTypeConverter
+import com.example.cf_sdk.changebankapi.util.MoneyTypeConverter
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

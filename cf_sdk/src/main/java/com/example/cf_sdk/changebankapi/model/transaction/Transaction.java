@@ -4,8 +4,6 @@ package com.example.cf_sdk.changebankapi.model.transaction;
 import com.example.cf_sdk.changebankapi.model.account.Account;
 import com.example.cf_sdk.changebankapi.model.account.Card;
 import com.example.cf_sdk.changebankapi.model.account.Money;
-import com.example.sdk_no_dagger.changebankapi.model.transaction.ProcessorCategory;
-import com.example.sdk_no_dagger.changebankapi.model.transaction.TransactionStatus;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

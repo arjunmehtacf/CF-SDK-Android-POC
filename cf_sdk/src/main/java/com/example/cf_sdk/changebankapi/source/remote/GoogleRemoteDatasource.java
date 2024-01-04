@@ -3,10 +3,10 @@ package com.example.cf_sdk.changebankapi.source.remote;
 
 
 
+import com.example.cf_sdk.changebankapi.model.google.PlaceAutocompleteSerializer;
+import com.example.cf_sdk.changebankapi.model.google.PlaceDetailSerializer;
 import com.example.cf_sdk.changebankapi.network.api.GoogleApi;
-import com.example.sdk_no_dagger.changebankapi.model.google.PlaceAutocompleteSerializer;
-import com.example.sdk_no_dagger.changebankapi.model.google.PlaceDetailSerializer;
-import com.example.sdk_no_dagger.changebankapi.source.datasource.GoogleDatasource;
+import com.example.cf_sdk.changebankapi.source.datasource.GoogleDatasource;
 
 import io.reactivex.Single;
 

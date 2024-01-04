@@ -3,7 +3,7 @@ package com.example.cf_sdk.changebankapi.source.local;
 import android.content.SharedPreferences;
 
 
-import com.example.sdk_no_dagger.changebankapi.source.datasource.AppPreferenceDatasource;
+import com.example.cf_sdk.changebankapi.source.datasource.AppPreferenceDatasource;
 
 import io.reactivex.Completable;
 import io.reactivex.Single;

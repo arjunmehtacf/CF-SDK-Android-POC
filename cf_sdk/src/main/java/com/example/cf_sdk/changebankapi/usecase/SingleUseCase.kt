@@ -1,9 +1,10 @@
-package com.example.sdk_no_dagger.changebankapi.usecase
+package com.example.cf_sdk.changebankapi.usecase
 
 import com.example.cf_sdk.changebankapi.parameter.Parameters
 import com.example.cf_sdk.changebankapi.usecase.ExecutionThread
 import com.example.cf_sdk.changebankapi.usecase.UseCase
-import com.example.sdk_no_dagger.changebankapi.util.ChangebankError
+import com.example.cf_sdk.changebankapi.util.ChangebankError
+
 import io.reactivex.Single
 import io.reactivex.SingleObserver
 import org.xml.sax.ErrorHandler

@@ -2,8 +2,8 @@ package com.example.cf_sdk.changebankapi.model.member;
 
 
 import com.example.cf_sdk.changebankapi.model.Features;
-import com.example.sdk_no_dagger.changebankapi.model.Role;
-import com.example.sdk_no_dagger.changebankapi.model.member.SecurityLevel;
+
+import com.example.cf_sdk.changebankapi.model.Role;
 import com.google.gson.annotations.SerializedName;
 
 /**

@@ -6,8 +6,7 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.core.util.Preconditions;
 
-import com.example.sdk_no_dagger.changebankapi.model.account.AchTransferStatus;
-import com.example.sdk_no_dagger.changebankapi.model.account.AchTransferType;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.joda.time.DateTime;

@@ -8,8 +8,9 @@ import static com.example.cf_sdk.changebankapi.Endpoints.Google.AUTOCOMPLETE_PRE
 import static com.example.cf_sdk.changebankapi.Endpoints.Google.PLACE_DETAILS;
 import static com.example.cf_sdk.changebankapi.network.api.ApiConfig.GOOGLE_PLACES_BASE_ENDPOINT;
 
-import com.example.sdk_no_dagger.changebankapi.model.google.PlaceAutocompleteSerializer;
-import com.example.sdk_no_dagger.changebankapi.model.google.PlaceDetailSerializer;
+
+import com.example.cf_sdk.changebankapi.model.google.PlaceAutocompleteSerializer;
+import com.example.cf_sdk.changebankapi.model.google.PlaceDetailSerializer;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;

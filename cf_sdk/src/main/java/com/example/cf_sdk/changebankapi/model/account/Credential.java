@@ -3,7 +3,6 @@ package com.example.cf_sdk.changebankapi.model.account;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.example.sdk_no_dagger.changebankapi.model.account.CredentialType;
 import com.google.gson.annotations.SerializedName;
 
 import org.joda.time.DateTime;

@@ -1,4 +1,4 @@
-package com.example.cf_sdk.changebankapi.parameter.member;
+package com.example.cf_sdk.defination.request;
 
 
 import com.example.cf_sdk.changebankapi.parameter.Parameters;

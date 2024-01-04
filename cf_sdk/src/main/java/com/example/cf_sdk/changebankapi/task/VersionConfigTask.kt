@@ -1,22 +1,24 @@
-package com.example.sdk_no_dagger.changebankapi.task
+package com.example.cf_sdk.changebankapi.task
 
 
+import com.example.cf_sdk.changebankapi.ErrorHandler
 import com.example.cf_sdk.changebankapi.log.LogManager
-import com.example.cf_sdk.changebankapi.model.member.version.VersionConfig
+import com.example.cf_sdk.defination.response.version.VersionConfig
+import com.example.cf_sdk.changebankapi.network.RetrofitFactory
 import com.example.cf_sdk.changebankapi.network.api.ApiConfig
-import com.example.cf_sdk.changebankapi.parameter.member.SettingsParameter
+import com.example.cf_sdk.changebankapi.network.api.MemberApiCreator
+import com.example.cf_sdk.defination.request.SettingsParameter
+import com.example.cf_sdk.changebankapi.source.MemberRepository
 import com.example.cf_sdk.changebankapi.source.cache.MemberCacheDatasource
+import com.example.cf_sdk.changebankapi.source.remote.MemberDatasource
+import com.example.cf_sdk.changebankapi.source.remote.MemberRemoteDatasource
 import com.example.cf_sdk.changebankapi.usecase.ExecutionThread
 import com.example.cf_sdk.changebankapi.usecase.IOThread
+import com.example.cf_sdk.changebankapi.usecase.SingleUseCase
 import com.example.cf_sdk.changebankapi.usecase.UIThread
-import com.example.sdk_no_dagger.changebankapi.ErrorHandler
-import com.example.sdk_no_dagger.changebankapi.network.RetrofitFactory
-import com.example.sdk_no_dagger.changebankapi.network.api.MemberApiCreator
-import com.example.sdk_no_dagger.changebankapi.source.MemberRepository
-import com.example.sdk_no_dagger.changebankapi.source.remote.MemberDatasource
-import com.example.sdk_no_dagger.changebankapi.source.remote.MemberRemoteDatasource
-import com.example.sdk_no_dagger.changebankapi.usecase.SingleUseCase
-import com.example.sdk_no_dagger.changebankapi.util.ChangebankError
+import com.example.cf_sdk.changebankapi.util.ChangebankError
+
+
 import io.reactivex.Single
 import retrofit2.Retrofit
 import java.io.File

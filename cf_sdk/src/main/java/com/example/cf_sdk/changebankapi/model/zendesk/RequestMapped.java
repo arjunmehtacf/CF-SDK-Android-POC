@@ -3,7 +3,6 @@ package com.example.cf_sdk.changebankapi.model.zendesk;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.sdk_no_dagger.changebankapi.model.zendesk.RequestStatusMapped;
 
 import java.io.Serializable;
 import java.util.Date;

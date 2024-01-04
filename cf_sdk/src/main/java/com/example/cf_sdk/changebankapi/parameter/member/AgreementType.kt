@@ -1,4 +1,4 @@
-package com.example.sdk_no_dagger.changebankapi.parameter.member
+package com.example.cf_sdk.changebankapi.parameter.member
 
 import com.google.gson.annotations.SerializedName
 

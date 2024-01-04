@@ -1,4 +1,4 @@
-package com.example.cf_sdk.changebankapi.response;
+package com.example.cf_sdk.defination.response;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -7,22 +7,22 @@ import com.google.gson.annotations.SerializedName;
  * Model of an error message from the API.
  */
 
-class ResponseMessage {
+public class ResponseMessage {
     @SerializedName("key")
     private String mKey;
 
     @SerializedName("errorMessage")
     private String mDefaultMessage;
 
-    String getDefaultMessage() {
+    public String getDefaultMessage() {
         return mDefaultMessage;
     }
 
-    String getMessageKey() {
+    public String getMessageKey() {
         return mKey;
     }
 
-    void setDefaultMessage(String defaultMessage){
+    public void setDefaultMessage(String defaultMessage){
         mDefaultMessage = defaultMessage;
     }
 

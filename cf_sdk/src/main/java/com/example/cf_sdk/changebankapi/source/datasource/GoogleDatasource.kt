@@ -1,7 +1,7 @@
-package com.example.sdk_no_dagger.changebankapi.source.datasource
+package com.example.cf_sdk.changebankapi.source.datasource
 
-import com.example.sdk_no_dagger.changebankapi.model.google.PlaceAutocompleteSerializer
-import com.example.sdk_no_dagger.changebankapi.model.google.PlaceDetailSerializer
+import com.example.cf_sdk.changebankapi.model.google.PlaceAutocompleteSerializer
+import com.example.cf_sdk.changebankapi.model.google.PlaceDetailSerializer
 import io.reactivex.Single
 
 /**

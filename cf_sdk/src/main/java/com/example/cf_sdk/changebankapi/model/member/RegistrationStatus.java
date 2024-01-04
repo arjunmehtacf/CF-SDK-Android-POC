@@ -1,7 +1,6 @@
 package com.example.cf_sdk.changebankapi.model.member;
 
-import com.example.sdk_no_dagger.changebankapi.model.member.LastSuccessfulStage;
-import com.example.sdk_no_dagger.changebankapi.model.member.ManualVerification;
+
 import com.google.gson.annotations.SerializedName;
 
 /**

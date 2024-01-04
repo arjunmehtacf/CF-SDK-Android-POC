@@ -1,4 +1,4 @@
-package com.example.sdk_no_dagger.changebankapi.model.google
+package com.example.cf_sdk.changebankapi.model.google
 
 import com.example.cf_sdk.changebankapi.parameter.google.PlaceDetailParameters
 import com.example.cf_sdk.changebankapi.parameter.member.AddAddressParameters

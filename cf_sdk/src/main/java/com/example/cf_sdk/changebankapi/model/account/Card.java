@@ -3,7 +3,7 @@ package com.example.cf_sdk.changebankapi.model.account;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.example.sdk_no_dagger.changebankapi.model.account.CardStatus;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.text.ParseException;

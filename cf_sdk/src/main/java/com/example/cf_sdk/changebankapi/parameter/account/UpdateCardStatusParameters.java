@@ -2,8 +2,9 @@ package com.example.cf_sdk.changebankapi.parameter.account;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.cf_sdk.changebankapi.model.account.CardStatus;
 import com.example.cf_sdk.changebankapi.parameter.Parameters;
-import com.example.sdk_no_dagger.changebankapi.model.account.CardStatus;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.HashMap;

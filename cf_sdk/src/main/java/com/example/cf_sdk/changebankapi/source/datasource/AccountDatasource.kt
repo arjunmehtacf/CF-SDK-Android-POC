@@ -1,4 +1,4 @@
-package com.example.sdk_no_dagger.changebankapi.source.datasource
+package com.example.cf_sdk.changebankapi.source.datasource
 
 
 import com.example.cf_sdk.changebankapi.model.account.Account
@@ -37,7 +37,7 @@ import com.example.cf_sdk.changebankapi.response.AchHistoryResponse
 import com.example.cf_sdk.changebankapi.response.AchTransferResponse
 import com.example.cf_sdk.changebankapi.response.BankCredentialsApiResponse
 import com.example.cf_sdk.changebankapi.response.BanksApiResponse
-import com.example.cf_sdk.changebankapi.response.ChangebankResponse
+import com.example.cf_sdk.defination.response.ChangebankResponse
 import com.google.common.base.Optional
 import io.reactivex.Completable
 import io.reactivex.Single

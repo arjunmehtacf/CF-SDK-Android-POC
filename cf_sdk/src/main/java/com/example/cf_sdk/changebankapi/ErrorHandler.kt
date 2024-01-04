@@ -1,11 +1,12 @@
-package com.example.sdk_no_dagger.changebankapi
+package com.example.cf_sdk.changebankapi
 
 
 import com.example.cf_sdk.changebankapi.exception.LoginTwoFactorTooManyAttemptsException
 import com.example.cf_sdk.changebankapi.exception.UnauthorizedSessionException
 import com.example.cf_sdk.changebankapi.network.api.ApiConfig
-import com.example.cf_sdk.changebankapi.response.ChangebankResponse
-import com.example.sdk_no_dagger.changebankapi.util.ChangebankError
+import com.example.cf_sdk.defination.response.ChangebankResponse
+import com.example.cf_sdk.changebankapi.util.ChangebankError
+
 import io.reactivex.Completable
 import io.reactivex.CompletableSource
 import io.reactivex.Observable
@@ -38,19 +39,22 @@ class ErrorHandler<T>(private val mRetrofit: Retrofit?) : ChangebankError<T> {
                     val mappedError = mapErrorCode(error)
                     return@Function Single.error<T>(mappedError)
                 } catch (e: IOException) {
-                    val error = ChangebankResponse()
+                    val error =
+                        ChangebankResponse()
                     error.httpCode = throwable.code()
                     error.setMessage(throwable.message)
                     return@Function Single.error<T>(error)
                 } catch (e: IllegalArgumentException) {
-                    val error = ChangebankResponse()
+                    val error =
+                        ChangebankResponse()
                     error.httpCode = throwable.code()
                     error.setMessage(throwable.message)
                     return@Function Single.error<T>(error)
                 }
             } else if (throwable is NoSuchElementException) {
                 try {
-                    val error = ChangebankResponse()
+                    val error =
+                        ChangebankResponse()
                     error.httpCode = HttpURLConnection.HTTP_NO_CONTENT
                     error.setMessage(ApiConfig.RESPONSE_CODE_204)
                     return@Function Single.error<T>(error)
@@ -76,12 +80,14 @@ class ErrorHandler<T>(private val mRetrofit: Retrofit?) : ChangebankError<T> {
                     val mappedError = mapErrorCode(error)
                     return@Function Completable.error(mappedError)
                 } catch (e: IOException) {
-                    val error = ChangebankResponse()
+                    val error =
+                        ChangebankResponse()
                     error.httpCode = throwable.code()
                     error.setMessage(throwable.message)
                     return@Function Completable.error(error)
                 } catch (e: IllegalArgumentException) {
-                    val error = ChangebankResponse()
+                    val error =
+                        ChangebankResponse()
                     error.httpCode = throwable.code()
                     error.setMessage(throwable.message)
                     return@Function Completable.error(error)
@@ -105,19 +111,22 @@ class ErrorHandler<T>(private val mRetrofit: Retrofit?) : ChangebankError<T> {
                     val mappedError = mapErrorCode(error)
                     return@Function Observable.error<T>(mappedError)
                 } catch (e: IOException) {
-                    val error = ChangebankResponse()
+                    val error =
+                        ChangebankResponse()
                     error.httpCode = throwable.code()
                     error.setMessage(throwable.message)
                     return@Function Observable.error<T>(error)
                 } catch (e: IllegalArgumentException) {
-                    val error = ChangebankResponse()
+                    val error =
+                        ChangebankResponse()
                     error.httpCode = throwable.code()
                     error.setMessage(throwable.message)
                     return@Function Observable.error<T>(error)
                 }
             } else if (throwable is NoSuchElementException) {
                 try {
-                    val error = ChangebankResponse()
+                    val error =
+                        ChangebankResponse()
                     error.httpCode = HttpURLConnection.HTTP_NO_CONTENT
                     error.setMessage(ApiConfig.RESPONSE_CODE_204)
                     return@Function Observable.error<T>(error)

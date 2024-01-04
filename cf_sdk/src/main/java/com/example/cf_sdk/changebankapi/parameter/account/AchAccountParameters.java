@@ -3,8 +3,8 @@ package com.example.cf_sdk.changebankapi.parameter.account;
 import androidx.annotation.NonNull;
 import androidx.core.util.Preconditions;
 
+import com.example.cf_sdk.changebankapi.model.account.AchAccountStatus;
 import com.example.cf_sdk.changebankapi.parameter.Parameters;
-import com.example.sdk_no_dagger.changebankapi.model.account.AchAccountStatus;
 
 import java.util.HashMap;
 import java.util.Map;

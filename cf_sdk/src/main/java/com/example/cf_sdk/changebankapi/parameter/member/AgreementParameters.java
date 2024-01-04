@@ -1,7 +1,6 @@
 package com.example.cf_sdk.changebankapi.parameter.member;
 
 import com.example.cf_sdk.changebankapi.parameter.Parameters;
-import com.example.sdk_no_dagger.changebankapi.parameter.member.AgreementType;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.HashMap;

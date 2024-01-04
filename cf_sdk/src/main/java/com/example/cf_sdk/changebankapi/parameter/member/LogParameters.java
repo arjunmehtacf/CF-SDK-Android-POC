@@ -1,8 +1,8 @@
 package com.example.cf_sdk.changebankapi.parameter.member;
 
 
-import com.example.sdk_no_dagger.changebankapi.model.member.ChangebankLogLevel;
-import com.example.sdk_no_dagger.changebankapi.model.member.ClientType;
+import com.example.cf_sdk.changebankapi.model.member.ChangebankLogLevel;
+import com.example.cf_sdk.changebankapi.model.member.ClientType;
 import com.example.cf_sdk.changebankapi.parameter.Parameters;
 import com.google.gson.annotations.SerializedName;
 

@@ -33,7 +33,7 @@ import com.example.cf_sdk.changebankapi.response.AchHistoryResponse;
 import com.example.cf_sdk.changebankapi.response.AchTransferResponse;
 import com.example.cf_sdk.changebankapi.response.BankCredentialsApiResponse;
 import com.example.cf_sdk.changebankapi.response.BanksApiResponse;
-import com.example.cf_sdk.changebankapi.response.ChangebankResponse;
+import com.example.cf_sdk.defination.response.ChangebankResponse;
 
 import java.util.List;
 import java.util.Map;

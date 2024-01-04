@@ -1,23 +1,20 @@
 
-package com.example.cf_sdk.changebankapi.model.member.version;
+package com.example.cf_sdk.defination.response.version;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Response model class for required update.
- */
-public class RequiredUpdate {
+public class Alert {
 
     @SerializedName("show")
     @Expose
     private Boolean show;
-    @SerializedName("minimumVersion")
-    @Expose
-    private String minimumVersion;
     @SerializedName("message")
     @Expose
-    private String message = " ";
+    private String message = "";
+   /* @SerializedName("blocking")
+    @Expose
+    private Boolean blocking;*/
 
     public Boolean getShow() {
         return show;
@@ -27,14 +24,6 @@ public class RequiredUpdate {
         this.show = show;
     }
 
-    public String getMinimumVersion() {
-        return minimumVersion;
-    }
-
-    public void setMinimumVersion(String minimumVersion) {
-        this.minimumVersion = minimumVersion;
-    }
-
     public String getMessage() {
         return message;
     }
@@ -42,5 +31,13 @@ public class RequiredUpdate {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    /*public Boolean getBlocking() {
+        return blocking;
+    }
+
+    public void setBlocking(Boolean blocking) {
+        this.blocking = blocking;
+    }*/
 
 }

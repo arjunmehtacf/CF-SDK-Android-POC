@@ -1,6 +1,6 @@
 package com.example.cf_sdk.changebankapi.model;
 
-import com.example.sdk_no_dagger.changebankapi.model.Role;
+
 import com.google.gson.annotations.SerializedName;
 
 /**

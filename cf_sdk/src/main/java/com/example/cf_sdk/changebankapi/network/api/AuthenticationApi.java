@@ -15,7 +15,7 @@ import com.example.cf_sdk.changebankapi.parameter.authentication.TwoFactorParame
 import com.example.cf_sdk.changebankapi.parameter.authentication.UpdateCredentialsParameters;
 import com.example.cf_sdk.changebankapi.parameter.authentication.UpdatePasswordParameters;
 import com.example.cf_sdk.changebankapi.parameter.authentication.UsernameParameters;
-import com.example.cf_sdk.changebankapi.response.ChangebankResponse;
+import com.example.cf_sdk.defination.response.ChangebankResponse;
 
 
 import java.util.Map;

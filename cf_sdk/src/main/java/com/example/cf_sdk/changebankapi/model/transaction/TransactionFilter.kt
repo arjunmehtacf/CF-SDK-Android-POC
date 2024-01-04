@@ -1,4 +1,4 @@
-package com.example.sdk_no_dagger.changebankapi.model.transaction
+package com.example.cf_sdk.changebankapi.model.transaction
 
 import com.google.gson.annotations.SerializedName
 

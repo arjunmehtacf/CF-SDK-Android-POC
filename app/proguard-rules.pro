@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+#-renamesourcefileattribute SourceFile
+-keep class com.example.cf_sdk.defination.** { *; }
+
+# Obfuscate (shrink and obfuscate) all classes in com.example.obfuscate.package
+-keep,allowobfuscation class com.example.cf_sdk.changebankapi.** { *; }

@@ -1,5 +1,6 @@
 package com.example.cf_sdk.changebankapi.response;
 
+import com.example.cf_sdk.defination.response.ResponseMessage;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;

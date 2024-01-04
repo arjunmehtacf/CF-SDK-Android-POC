@@ -12,7 +12,7 @@ import com.example.cf_sdk.changebankapi.parameter.authentication.ResendTwoFactor
 import com.example.cf_sdk.changebankapi.parameter.authentication.SecurityProfileParameters
 import com.example.cf_sdk.changebankapi.parameter.authentication.TwoFactorParameters
 import com.example.cf_sdk.changebankapi.parameter.authentication.UsernameParameters
-import com.example.cf_sdk.changebankapi.response.ChangebankResponse
+import com.example.cf_sdk.defination.response.ChangebankResponse
 
 import com.google.common.base.Optional
 import io.reactivex.Completable

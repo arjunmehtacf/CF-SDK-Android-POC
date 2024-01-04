@@ -12,7 +12,7 @@ import com.example.cf_sdk.changebankapi.model.member.MemberDetails;
 import com.example.cf_sdk.changebankapi.model.member.RSAPublicKeyResponse;
 import com.example.cf_sdk.changebankapi.model.member.UploadProfilePictureApiResponse;
 import com.example.cf_sdk.changebankapi.model.member.UserProfileResponse;
-import com.example.cf_sdk.changebankapi.model.member.version.VersionConfig;
+import com.example.cf_sdk.defination.response.version.VersionConfig;
 import com.example.cf_sdk.changebankapi.model.oow.OowQuestions;
 import com.example.cf_sdk.changebankapi.parameter.account.CheckDepositParam;
 import com.example.cf_sdk.changebankapi.parameter.member.ActivateCardParameter;
@@ -34,7 +34,7 @@ import com.example.cf_sdk.changebankapi.parameter.member.VerifyOutOfWalletParame
 import com.example.cf_sdk.changebankapi.parameter.member.VerifyPhoneCodeParameters;
 import com.example.cf_sdk.changebankapi.parameter.validation.EmailValidationParameters;
 import com.example.cf_sdk.changebankapi.parameter.validation.PhoneValidationParameters;
-import com.example.cf_sdk.changebankapi.response.ChangebankResponse;
+import com.example.cf_sdk.defination.response.ChangebankResponse;
 import com.example.cf_sdk.changebankapi.response.DocumentUploadResponse;
 import com.example.cf_sdk.changebankapi.response.IdscanResponse;
 import com.example.cf_sdk.changebankapi.response.VerifyOowResponse;
@@ -58,7 +58,6 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.Streaming;
-import retrofit2.http.Url;
 
 /**
  *

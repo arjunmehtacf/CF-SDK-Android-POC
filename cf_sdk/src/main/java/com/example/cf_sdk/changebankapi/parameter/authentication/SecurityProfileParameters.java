@@ -1,8 +1,8 @@
 package com.example.cf_sdk.changebankapi.parameter.authentication;
 
 
+import com.example.cf_sdk.changebankapi.model.member.SecurityLevel;
 import com.example.cf_sdk.changebankapi.parameter.Parameters;
-import com.example.sdk_no_dagger.changebankapi.model.member.SecurityLevel;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.HashMap;

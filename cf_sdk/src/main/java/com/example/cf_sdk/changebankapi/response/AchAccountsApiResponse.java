@@ -2,6 +2,7 @@ package com.example.cf_sdk.changebankapi.response;
 
 
 import com.example.cf_sdk.changebankapi.model.account.AchAccount;
+import com.example.cf_sdk.defination.response.ChangebankResponse;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

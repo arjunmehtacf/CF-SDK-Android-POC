@@ -1,13 +1,10 @@
 
-package com.example.cf_sdk.changebankapi.model.member.version;
+package com.example.cf_sdk.defination.response.version;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Response model for mobile settings api.
- */
-public class VersionConfig {
+public class Ios {
 
     @SerializedName("alert")
     @Expose

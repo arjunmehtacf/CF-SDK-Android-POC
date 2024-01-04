@@ -1,7 +1,8 @@
 package com.example.cf_sdk.changebankapi.parameter.account;
 
+import com.example.cf_sdk.changebankapi.model.account.AchTransferType;
 import com.example.cf_sdk.changebankapi.parameter.Parameters;
-import com.example.sdk_no_dagger.changebankapi.model.account.AchTransferType;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;

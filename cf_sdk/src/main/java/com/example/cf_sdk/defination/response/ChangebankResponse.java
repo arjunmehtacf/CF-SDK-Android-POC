@@ -1,7 +1,9 @@
-package com.example.cf_sdk.changebankapi.response;
+package com.example.cf_sdk.defination.response;
 
 
 import com.example.cf_sdk.changebankapi.model.account.AchAccount;
+
+import com.example.cf_sdk.defination.response.ResponseMessage;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;

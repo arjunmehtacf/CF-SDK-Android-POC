@@ -1,20 +1,23 @@
 
-package com.example.cf_sdk.changebankapi.model.member.version;
+package com.example.cf_sdk.defination.response.version;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Alert {
+/**
+ * Inner model for version config class
+ */
+public class OptionalUpdate {
 
     @SerializedName("show")
     @Expose
     private Boolean show;
+    @SerializedName("optionalVersion")
+    @Expose
+    private String optionalVersion;
     @SerializedName("message")
     @Expose
     private String message = "";
-   /* @SerializedName("blocking")
-    @Expose
-    private Boolean blocking;*/
 
     public Boolean getShow() {
         return show;
@@ -24,6 +27,14 @@ public class Alert {
         this.show = show;
     }
 
+    public String getOptionalVersion() {
+        return optionalVersion;
+    }
+
+    public void setOptionalVersion(String optionalVersion) {
+        this.optionalVersion = optionalVersion;
+    }
+
     public String getMessage() {
         return message;
     }
@@ -31,13 +42,5 @@ public class Alert {
     public void setMessage(String message) {
         this.message = message;
     }
-
-    /*public Boolean getBlocking() {
-        return blocking;
-    }
-
-    public void setBlocking(Boolean blocking) {
-        this.blocking = blocking;
-    }*/
 
 }

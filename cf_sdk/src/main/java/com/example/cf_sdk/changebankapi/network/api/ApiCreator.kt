@@ -1,8 +1,8 @@
-package com.example.sdk_no_dagger.changebankapi.network.api
+package com.example.cf_sdk.changebankapi.network.api
 
 
 import com.example.cf_sdk.changebankapi.log.Logger
-import com.example.sdk_no_dagger.changebankapi.util.Creator
+import com.example.cf_sdk.changebankapi.util.Creator
 import retrofit2.Retrofit
 
 /**

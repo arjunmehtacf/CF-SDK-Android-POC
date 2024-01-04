@@ -1,7 +1,7 @@
 package com.example.cf_sdk.changebankapi.parameter.member;
 
 
-import com.example.sdk_no_dagger.changebankapi.model.member.ImageExtension;
+import com.example.cf_sdk.changebankapi.model.member.ImageExtension;
 import com.example.cf_sdk.changebankapi.parameter.Parameters;
 import com.google.gson.annotations.SerializedName;
 

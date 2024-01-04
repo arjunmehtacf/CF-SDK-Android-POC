@@ -3,6 +3,7 @@ package com.example.cf_sdk.changebankapi.source.remote
 
 import com.example.cf_sdk.changebankapi.model.account.Account
 import com.example.cf_sdk.changebankapi.model.account.AchAccount
+import com.example.cf_sdk.changebankapi.model.account.AchAccountStatus
 import com.example.cf_sdk.changebankapi.model.account.AchTransfer
 import com.example.cf_sdk.changebankapi.model.account.Bank
 import com.example.cf_sdk.changebankapi.model.account.Card
@@ -38,17 +39,13 @@ import com.example.cf_sdk.changebankapi.response.AchHistoryResponse
 import com.example.cf_sdk.changebankapi.response.AchTransferResponse
 import com.example.cf_sdk.changebankapi.response.BankCredentialsApiResponse
 import com.example.cf_sdk.changebankapi.response.BanksApiResponse
-import com.example.cf_sdk.changebankapi.response.ChangebankResponse
-import com.example.sdk_no_dagger.changebankapi.model.account.AchAccountStatus
-import com.example.sdk_no_dagger.changebankapi.source.datasource.AccountDatasource
+import com.example.cf_sdk.changebankapi.source.datasource.AccountDatasource
+import com.example.cf_sdk.defination.response.ChangebankResponse
 import com.google.common.base.Optional
 import io.reactivex.Completable
 import io.reactivex.Single
-import io.reactivex.SingleSource
 import io.reactivex.functions.Function
-import okhttp3.ResponseBody
 import okio.Okio
-import retrofit2.Response
 import java.io.File
 import java.io.IOException
 

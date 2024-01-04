@@ -1,4 +1,4 @@
-package com.example.sdk_no_dagger.changebankapi.util
+package com.example.cf_sdk.changebankapi.util
 
 import io.reactivex.Completable
 import io.reactivex.CompletableSource

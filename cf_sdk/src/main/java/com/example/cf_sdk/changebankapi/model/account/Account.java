@@ -5,8 +5,7 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import com.example.sdk_no_dagger.changebankapi.model.account.AccountStatus;
-import com.example.sdk_no_dagger.changebankapi.model.account.AccountType;
+
 import com.google.gson.annotations.SerializedName;
 
 

@@ -1,4 +1,4 @@
-package com.example.sdk_no_dagger.changebankapi.source.remote
+package com.example.cf_sdk.changebankapi.source.remote
 
 
 import com.example.cf_sdk.changebankapi.model.FileResponse
@@ -11,7 +11,7 @@ import com.example.cf_sdk.changebankapi.model.member.MemberDetails
 import com.example.cf_sdk.changebankapi.model.member.RSAPublicKeyResponse
 import com.example.cf_sdk.changebankapi.model.member.UploadProfilePictureApiResponse
 import com.example.cf_sdk.changebankapi.model.member.UserProfileResponse
-import com.example.cf_sdk.changebankapi.model.member.version.VersionConfig
+import com.example.cf_sdk.defination.response.version.VersionConfig
 import com.example.cf_sdk.changebankapi.model.oow.OowQuestions
 import com.example.cf_sdk.changebankapi.network.api.MemberApi
 import com.example.cf_sdk.changebankapi.parameter.account.CardToCardTransferParameters
@@ -37,7 +37,7 @@ import com.example.cf_sdk.changebankapi.parameter.member.RefreshOowParameters
 import com.example.cf_sdk.changebankapi.parameter.member.ResetPasswordParameters
 import com.example.cf_sdk.changebankapi.parameter.member.SendPhoneCodeParameters
 import com.example.cf_sdk.changebankapi.parameter.member.SetESignAgreementAcceptedParameters
-import com.example.cf_sdk.changebankapi.parameter.member.SettingsParameter
+import com.example.cf_sdk.defination.request.SettingsParameter
 import com.example.cf_sdk.changebankapi.parameter.member.UpdateEmailAddressParameters
 import com.example.cf_sdk.changebankapi.parameter.member.UploadDocumentsParameters
 import com.example.cf_sdk.changebankapi.parameter.member.UserProfileParameter
@@ -45,7 +45,7 @@ import com.example.cf_sdk.changebankapi.parameter.member.VerifyOutOfWalletParame
 import com.example.cf_sdk.changebankapi.parameter.member.VerifyPhoneCodeParameters
 import com.example.cf_sdk.changebankapi.parameter.validation.EmailValidationParameters
 import com.example.cf_sdk.changebankapi.parameter.validation.PhoneValidationParameters
-import com.example.cf_sdk.changebankapi.response.ChangebankResponse
+import com.example.cf_sdk.defination.response.ChangebankResponse
 import com.example.cf_sdk.changebankapi.response.DocumentUploadResponse
 import com.example.cf_sdk.changebankapi.response.IdscanResponse
 import com.example.cf_sdk.changebankapi.response.VerifyOowResponse

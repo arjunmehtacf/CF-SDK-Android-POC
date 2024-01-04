@@ -10,7 +10,7 @@ import com.example.cf_sdk.changebankapi.parameter.transaction.PdfStatementsParam
 import com.example.cf_sdk.changebankapi.parameter.transaction.TransactionByIdParameters;
 import com.example.cf_sdk.changebankapi.parameter.transaction.TransactionsByDateParameters;
 import com.example.cf_sdk.changebankapi.parameter.transaction.TransactionsSearchParameters;
-import com.example.sdk_no_dagger.changebankapi.source.datasource.TransactionDatasource;
+import com.example.cf_sdk.changebankapi.source.datasource.TransactionDatasource;
 import com.google.common.base.Optional;
 
 import java.io.File;
