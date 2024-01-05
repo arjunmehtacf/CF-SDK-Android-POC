@@ -4,8 +4,6 @@ package com.example.cf_sdk.changebankapi.usecase;
 import com.example.cf_sdk.changebankapi.parameter.Parameters;
 
 /**
- * Created by victorojeda on 10/19/16.
- * <p>
  * Base class for use cases.
  */
 

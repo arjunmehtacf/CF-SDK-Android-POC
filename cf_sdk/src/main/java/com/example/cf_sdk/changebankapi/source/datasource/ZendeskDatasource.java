@@ -15,9 +15,6 @@ import java.util.List;
 
 import io.reactivex.Single;
 
-/**
- * Created by gunveernatt on 8/17/17.
- */
 
 public interface ZendeskDatasource {
 

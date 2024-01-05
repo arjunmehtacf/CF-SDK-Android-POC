@@ -53,8 +53,6 @@ import io.reactivex.Single
 import java.io.File
 
 /**
- * Created by victorojeda on 11/23/16.
- *
  *
  * Datasource to provide member data.
  */

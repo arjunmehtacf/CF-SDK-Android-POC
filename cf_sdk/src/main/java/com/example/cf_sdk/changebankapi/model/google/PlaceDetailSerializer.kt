@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName
 import java.util.Arrays
 
 /**
- * Created by gunveernatt on 9/7/17.
  *
  * retrieve address selected.
  */

@@ -5,7 +5,6 @@ import com.example.cf_sdk.changebankapi.model.google.PlaceDetailSerializer
 import io.reactivex.Single
 
 /**
- * Created by gunveernatt on 8/17/17.
  *
  * Datasource for Google Places API.
  */

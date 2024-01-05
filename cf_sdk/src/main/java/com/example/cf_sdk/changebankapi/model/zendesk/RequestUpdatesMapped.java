@@ -8,9 +8,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 
-/**
- * Created by gunveernatt on 6/6/18.
- */
 
 public class RequestUpdatesMapped implements Serializable {
 

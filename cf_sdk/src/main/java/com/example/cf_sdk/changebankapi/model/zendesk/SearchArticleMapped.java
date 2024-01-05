@@ -2,9 +2,6 @@ package com.example.cf_sdk.changebankapi.model.zendesk;
 
 import java.io.Serializable;
 
-/**
- * Created by gunveernatt on 6/4/18.
- */
 
 public class SearchArticleMapped implements Serializable{
 

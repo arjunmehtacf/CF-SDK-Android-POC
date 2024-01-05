@@ -12,7 +12,6 @@ import retrofit2.Retrofit
 
 
 /**
- * Created by victorojeda on 5/29/18.
  *
  * Use case to be used when there is only one result expected.
  */

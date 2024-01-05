@@ -6,9 +6,6 @@ import com.example.cf_sdk.changebankapi.parameter.Parameters;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by gunveernatt on 6/4/18.
- */
 
 
 public class ZendeskFaqSearchParameters extends Parameters {

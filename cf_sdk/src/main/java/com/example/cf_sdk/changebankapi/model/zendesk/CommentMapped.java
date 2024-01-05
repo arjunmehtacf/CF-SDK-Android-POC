@@ -6,9 +6,6 @@ import androidx.annotation.Nullable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by gunveernatt on 6/4/18.
- */
 
 public class CommentMapped {
 

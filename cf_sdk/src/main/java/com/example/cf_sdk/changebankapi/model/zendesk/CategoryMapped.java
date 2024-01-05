@@ -5,9 +5,6 @@ import androidx.annotation.Nullable;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Created by gunveernatt on 5/30/18.
- */
 
 public class CategoryMapped implements Serializable {
 

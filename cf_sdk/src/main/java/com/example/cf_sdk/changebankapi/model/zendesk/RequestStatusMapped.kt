@@ -2,9 +2,6 @@ package com.example.cf_sdk.changebankapi.model.zendesk
 
 import com.google.gson.annotations.SerializedName
 
-/**
- * Created by gunveernatt on 6/4/18.
- */
 enum class RequestStatusMapped {
     @SerializedName("new")
     New, @SerializedName("open")

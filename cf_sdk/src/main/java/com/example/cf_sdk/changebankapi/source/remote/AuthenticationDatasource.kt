@@ -20,8 +20,6 @@ import io.reactivex.Observable
 import io.reactivex.Single
 
 /**
- * Created by victorojeda on 10/19/16.
- *
  *
  * DataSource to provide authentication endpoints.
  */

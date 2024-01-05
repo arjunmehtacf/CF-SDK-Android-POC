@@ -5,9 +5,6 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-/**
- * Created by gunveernatt on 6/4/18.
- */
 
 class AttachmentMapped {
 

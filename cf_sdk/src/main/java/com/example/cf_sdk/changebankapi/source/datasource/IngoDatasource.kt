@@ -6,7 +6,6 @@ import com.example.cf_sdk.changebankapi.response.IngoResponse
 import io.reactivex.Single
 
 /**
- * Created by gunveernatt on 8/17/17.
  *
  *
  * Datasource for Ingo API.

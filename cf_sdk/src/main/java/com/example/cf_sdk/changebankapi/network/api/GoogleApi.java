@@ -18,7 +18,6 @@ import retrofit2.http.Headers;
 import retrofit2.http.Query;
 
 /**
- * Created by victorojeda on 11/22/16.
  * <p>
  * Retrofit interface to connect with Member API.
  */

@@ -7,9 +7,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by gunveernatt on 5/30/18.
- */
 
 public class ArticleMapped implements Serializable{
 

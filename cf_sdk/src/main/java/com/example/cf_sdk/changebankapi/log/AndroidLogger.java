@@ -3,8 +3,6 @@ package com.example.cf_sdk.changebankapi.log;
 import android.util.Log;
 
 /**
- * Created by victorojeda on 10/26/17.
- * <p>
  * Android Logger.
  */
 

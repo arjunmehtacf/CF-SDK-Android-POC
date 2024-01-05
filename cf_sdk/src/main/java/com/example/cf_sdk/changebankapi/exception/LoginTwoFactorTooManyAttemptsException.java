@@ -1,7 +1,6 @@
 package com.example.cf_sdk.changebankapi.exception;
 
 /**
- * Created by gunveernatt on 11/10/17.
  *
  * Exception to be thrown when too many incorrect attempts for login two factor.
  */

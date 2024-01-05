@@ -8,9 +8,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by gunveernatt on 6/4/18.
- */
 
 public class RequestMapped implements Serializable {
 

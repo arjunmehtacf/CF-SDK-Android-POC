@@ -44,7 +44,6 @@ import io.reactivex.Single
 import java.io.File
 
 /**
- * Created by gunveernatt on 10/4/17.
  *
  *
  * Datasource to provide account data.

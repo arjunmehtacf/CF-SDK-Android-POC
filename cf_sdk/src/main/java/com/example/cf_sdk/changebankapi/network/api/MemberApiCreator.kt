@@ -6,7 +6,6 @@ import com.example.cf_sdk.changebankapi.network.api.MemberApi
 import retrofit2.Retrofit
 
 /**
- * Created by victorojeda on 1/29/18.
  *
  * Network [MemberApi] creator.
  */

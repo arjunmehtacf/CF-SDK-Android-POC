@@ -14,8 +14,6 @@ import io.reactivex.Single
 import java.io.File
 
 /**
- * Created by victorojeda on 12/21/17.
- *
  *
  * Datasource to retrieve transactions.
  */

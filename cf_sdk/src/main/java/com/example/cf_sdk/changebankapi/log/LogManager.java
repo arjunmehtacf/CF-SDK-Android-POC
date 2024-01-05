@@ -3,7 +3,7 @@ package com.example.cf_sdk.changebankapi.log;
 
 
 /**
- * Created by gunveernatt on 5/17/18.
+ *
  */
 
 public class LogManager implements Logger {
