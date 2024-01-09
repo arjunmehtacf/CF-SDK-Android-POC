@@ -1,6 +1,7 @@
 package com.example.cf_sdk.changebankapi.source.remote
 
 
+import com.example.cf_sdk.changebankapi.Endpoints
 import com.example.cf_sdk.changebankapi.model.FileResponse
 import com.example.cf_sdk.changebankapi.model.Session
 import com.example.cf_sdk.changebankapi.model.account.ProductDetailsReponseItem
@@ -49,6 +50,7 @@ import com.example.cf_sdk.defination.response.ChangebankResponse
 import com.example.cf_sdk.changebankapi.response.DocumentUploadResponse
 import com.example.cf_sdk.changebankapi.response.IdscanResponse
 import com.example.cf_sdk.changebankapi.response.VerifyOowResponse
+import com.example.cf_sdk.changebankapi.sdkcore.CFSDKConstant
 import com.google.common.base.Optional
 import com.google.common.io.BaseEncoding
 import io.reactivex.Completable
@@ -85,7 +87,7 @@ class MemberRemoteDatasource(private val mMemberApi: MemberApi, private val mCac
     }
 
     override fun createMember(
-        createMemberParameters: CreateMemberParameters?
+        createMemberParameters: CreateMemberParameters?,
     ): Single<Session?>? {
         return mMemberApi.createMember(createMemberParameters!!.headers, createMemberParameters)
     }
@@ -122,7 +124,7 @@ class MemberRemoteDatasource(private val mMemberApi: MemberApi, private val mCac
     }
 
     override fun phoneAvailability(
-        phoneValidationParameters: PhoneValidationParameters?
+        phoneValidationParameters: PhoneValidationParameters?,
     ): Single<ChangebankResponse?>? {
         return mMemberApi.phoneAvailability(
             phoneValidationParameters!!.headers,
@@ -148,7 +150,7 @@ class MemberRemoteDatasource(private val mMemberApi: MemberApi, private val mCac
     }
 
     override fun getMemberDetails(
-        stringParameters: MemberDetailParameters?
+        stringParameters: MemberDetailParameters?,
     ): Single<Optional<MemberDetails?>?>? {
         return mMemberApi.memberDetails(
             stringParameters!!.headers,
@@ -317,7 +319,8 @@ class MemberRemoteDatasource(private val mMemberApi: MemberApi, private val mCac
     }
 
     override fun getDocumentImageById(documentParameters: DocumentParameters?): Single<out Optional<out FileResponse?>?> {
-        documentParameters ?: return Single.error<Optional<FileResponse>>(IllegalArgumentException("documentParameters cannot be null"))
+        documentParameters
+            ?: return Single.error<Optional<FileResponse>>(IllegalArgumentException("documentParameters cannot be null"))
 
         return mMemberApi.getDocumentImageById(
             documentParameters.headers,
@@ -355,7 +358,8 @@ class MemberRemoteDatasource(private val mMemberApi: MemberApi, private val mCac
 
 
     override fun getProfilePicture(parameters: ProfilePictureParameters?): Single<out Optional<out FileResponse?>?> {
-        parameters ?: return Single.error<Optional<FileResponse>>(IllegalArgumentException("parameters cannot be null"))
+        parameters
+            ?: return Single.error<Optional<FileResponse>>(IllegalArgumentException("parameters cannot be null"))
 
         return mMemberApi.getProfilePicture(parameters.headers).flatMap { responseBodyResponse ->
             if (responseBodyResponse.isSuccessful) {
@@ -399,8 +403,9 @@ class MemberRemoteDatasource(private val mMemberApi: MemberApi, private val mCac
 
     override fun getVersionConfig(settingsParameter: SettingsParameter?): Single<VersionConfig?>? {
         return mMemberApi.getVersionConfig(
-            settingsParameter!!.os,
-            "20cbd0a0-fed3-407e-9be2-ba3825e6faaf"
+            settingsParameter?.headers?.get(CFSDKConstant.KEY_BASE_URL) + Endpoints.Member.GET_VERSION_CONFIG,
+            settingsParameter?.os,
+            settingsParameter?.applicationId
         )
     }
 
@@ -446,7 +451,7 @@ class MemberRemoteDatasource(private val mMemberApi: MemberApi, private val mCac
 
     override fun forgotUsername(
         forgotUsernameParameters: ForgotUsernameParameters?,
-        appId: String?
+        appId: String?,
     ): Completable? {
         return mMemberApi.forgotUsername(
             forgotUsernameParameters!!.headers,

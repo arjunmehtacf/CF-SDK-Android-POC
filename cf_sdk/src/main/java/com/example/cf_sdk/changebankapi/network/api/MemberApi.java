@@ -58,6 +58,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.Streaming;
+import retrofit2.http.Url;
 
 /**
  *
@@ -249,8 +250,8 @@ public interface MemberApi {
 
 
 
-    @GET(ApiConfig.MEMBER_BASE_ENDPOINT+Endpoints.Member.GET_VERSION_CONFIG)
-    Single<VersionConfig> getVersionConfig(@Query("os") String OperatingSystem, @Query("applicationID") String applicationId);
+    @GET
+    Single<VersionConfig> getVersionConfig(@Url String baseUrl, @Query("os") String OperatingSystem, @Query("applicationID") String applicationId);
 
     @GET(ApiConfig.MEMBER_BASE_ENDPOINT + Endpoints.Member.GET_USER_PROFILE)
     Single<UserProfileResponse> getUserProfile(@HeaderMap Map<String, String> headers);

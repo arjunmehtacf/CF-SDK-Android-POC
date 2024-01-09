@@ -17,9 +17,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.root)
+        binding.edtBaseUrl.setText("https://alb-internal.vtxn-qadev.cf-cloud.net/v1/")
+        binding.edtAppId.setText("20cbd0a0-fed3-407e-9be2-ba3825e6faaf")
+
+        binding.btnGetSettings.setOnClickListener {
+            if (binding.edtBaseUrl.text.isNotEmpty() && binding.edtAppId.text.isNotEmpty()) {
+                callMobileSettingsAPI()
+            } else {
+                Toast.makeText(this@MainActivity, "Please provide valid input", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+    }
+
+    fun callMobileSettingsAPI() {
         CFSDKCall.getVersionConfig(
-            "https://alb-internal.vtxn-qadev.cf-cloud.net/v1/",
-            "20cbd0a0-fed3-407e-9be2-ba3825e6faaf",
+            binding.edtBaseUrl.text.toString(),
+            binding.edtAppId.text.toString(),
             object :
                 CFSDKResponseCallback<VersionConfig> {
                 override fun onSuccess(versionConfig: VersionConfig) {
@@ -28,16 +42,18 @@ class MainActivity : AppCompatActivity() {
                         "Minimum version is ${versionConfig?.requiredUpdate?.minimumVersion} and  required update is = ${versionConfig?.requiredUpdate?.show}",
                         Toast.LENGTH_SHORT
                     ).show()
+                    binding.tvResponse.text =
+                        "Success = Minimum version is ${versionConfig?.requiredUpdate?.minimumVersion} and  required update is = ${versionConfig?.requiredUpdate?.show}"
                 }
 
                 override fun onFailure(error: Throwable?) {
                     Toast.makeText(
                         this@MainActivity,
-                        (error as ChangebankResponse)?.getmMessage(),
+                        (error as ChangebankResponse)?.message,
                         Toast.LENGTH_SHORT
                     ).show()
+                    binding.tvResponse.text = "error = " + (error as ChangebankResponse)?.message
                 }
             })
-
     }
 }

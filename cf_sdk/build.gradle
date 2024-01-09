@@ -61,7 +61,7 @@ publishing {
         bar(MavenPublication){
             groupId "com.changefinancial"
             artifactId "sdkpoc"
-            version "1.0.7"
+            version "1.0.8"
             artifact("$buildDir/outputs/aar/cf_sdk-release.aar")
         }
     }

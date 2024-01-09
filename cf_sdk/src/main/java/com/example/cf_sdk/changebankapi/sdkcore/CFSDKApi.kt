@@ -13,11 +13,19 @@ import io.reactivex.disposables.Disposable
 class CFSDKApi : CFSDKProvider {
 
 
+    /**
+     * This function is used to get mobile settings data from server
+     */
     override fun callVersionConfigFunction(
         baseUrl: String,
         appId: String,
         responseCallback: CFSDKResponseCallback<VersionConfig>,
     ) {
+        val settingsHeader = HashMap<String, String>()
+        settingsHeader.put(CFSDKConstant.KEY_BASE_URL, baseUrl)
+
+        val settingsParameter = SettingsParameter(settingsHeader)
+        settingsParameter.applicationId = appId
         VersionConfigTask().execute(object :
             ChangebankSingleObserver<VersionConfig> {
             override fun onSubscribe(d: Disposable) {
@@ -25,13 +33,12 @@ class CFSDKApi : CFSDKProvider {
             }
 
             override fun onError(e: Throwable) {
-                responseCallback.onFailure(e)
-
+                responseCallback.onFailure(CFSDKErrorHandler.handleAPIError(e))
             }
 
             override fun onSuccess(t: VersionConfig) {
                 responseCallback.onSuccess(t)
             }
-        }, SettingsParameter(null))
+        }, settingsParameter)
     }
 }
