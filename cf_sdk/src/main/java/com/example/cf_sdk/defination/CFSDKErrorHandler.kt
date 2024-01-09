@@ -1,7 +1,6 @@
-package com.example.cf_sdk.changebankapi.sdkcore
+package com.example.cf_sdk.defination
 
 import com.example.cf_sdk.defination.response.ChangebankResponse
-import com.example.sdk_no_dagger.changebankapi.sdkcore.CFSDKErrorResponse
 import com.google.gson.Gson
 import retrofit2.HttpException
 import java.io.IOException

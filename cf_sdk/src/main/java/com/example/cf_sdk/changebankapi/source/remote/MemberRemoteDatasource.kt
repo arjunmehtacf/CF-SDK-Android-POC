@@ -50,7 +50,7 @@ import com.example.cf_sdk.defination.response.ChangebankResponse
 import com.example.cf_sdk.changebankapi.response.DocumentUploadResponse
 import com.example.cf_sdk.changebankapi.response.IdscanResponse
 import com.example.cf_sdk.changebankapi.response.VerifyOowResponse
-import com.example.cf_sdk.changebankapi.sdkcore.CFSDKConstant
+import com.example.cf_sdk.defination.CFSDKConstant
 import com.google.common.base.Optional
 import com.google.common.io.BaseEncoding
 import io.reactivex.Completable
