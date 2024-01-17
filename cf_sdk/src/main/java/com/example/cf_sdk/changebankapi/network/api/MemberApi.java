@@ -12,6 +12,10 @@ import com.example.cf_sdk.changebankapi.model.member.MemberDetails;
 import com.example.cf_sdk.changebankapi.model.member.RSAPublicKeyResponse;
 import com.example.cf_sdk.changebankapi.model.member.UploadProfilePictureApiResponse;
 import com.example.cf_sdk.changebankapi.model.member.UserProfileResponse;
+import com.example.cf_sdk.defination.request.AccessTokenParameter;
+import com.example.cf_sdk.defination.request.AuthCodeParameter;
+import com.example.cf_sdk.defination.response.AccessTokenResponse;
+import com.example.cf_sdk.defination.response.AuthCodeResponse;
 import com.example.cf_sdk.defination.response.version.VersionConfig;
 import com.example.cf_sdk.changebankapi.model.oow.OowQuestions;
 import com.example.cf_sdk.changebankapi.parameter.account.CheckDepositParam;
@@ -252,6 +256,18 @@ public interface MemberApi {
 
     @GET
     Single<VersionConfig> getVersionConfig(@Url String baseUrl, @Query("os") String OperatingSystem, @Query("applicationID") String applicationId);
+
+    @POST
+    @Headers("Content-Type: application/json")
+    Single<AccessTokenResponse> getAccessToken(@Url String url,
+                                               @HeaderMap Map<String, String> headers,
+                                               @Body AccessTokenParameter accessTokenParameter);
+
+    @POST
+    @Headers("Content-Type: application/json")
+    Single<AuthCodeResponse> getAuthCode(@Url String url,
+                                         @HeaderMap Map<String, String> headers,
+                                         @Body AuthCodeParameter authCodeParameter);
 
     @GET(ApiConfig.MEMBER_BASE_ENDPOINT + Endpoints.Member.GET_USER_PROFILE)
     Single<UserProfileResponse> getUserProfile(@HeaderMap Map<String, String> headers);

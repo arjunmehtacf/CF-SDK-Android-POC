@@ -1,5 +1,7 @@
 package com.example.cf_sdk.changebankapi.source.cache;
 
+import androidx.annotation.Nullable;
+
 import com.example.cf_sdk.changebankapi.model.FileResponse;
 import com.example.cf_sdk.changebankapi.model.Session;
 import com.example.cf_sdk.changebankapi.model.account.ProductDetailsReponseItem;
@@ -9,6 +11,10 @@ import com.example.cf_sdk.changebankapi.model.member.DocumentApiResponse;
 import com.example.cf_sdk.changebankapi.model.member.MemberDetails;
 import com.example.cf_sdk.changebankapi.model.member.RSAPublicKeyResponse;
 import com.example.cf_sdk.changebankapi.model.member.UserProfileResponse;
+import com.example.cf_sdk.defination.request.AccessTokenParameter;
+import com.example.cf_sdk.defination.request.AuthCodeParameter;
+import com.example.cf_sdk.defination.response.AccessTokenResponse;
+import com.example.cf_sdk.defination.response.AuthCodeResponse;
 import com.example.cf_sdk.defination.response.version.VersionConfig;
 import com.example.cf_sdk.changebankapi.model.oow.OowQuestions;
 import com.example.cf_sdk.changebankapi.parameter.account.CardToCardTransferParameters;
@@ -346,5 +352,18 @@ public class MemberCacheDatasource implements MemberDatasource {
                 "MemberCacheDatasource not support batchListCreateMember");
     }
 
+    @Nullable
+    @Override
+    public Single<AuthCodeResponse> getAuthCode(@Nullable AuthCodeParameter authCodeParameter) {
+        throw new UnsupportedOperationException(
+                "MemberCacheDatasource not support getAuthCode");
+    }
 
+    @Nullable
+    @Override
+    public Single<AccessTokenResponse> getAccessToken(@Nullable AccessTokenParameter accessTokenParameter) {
+        throw new UnsupportedOperationException(
+                "MemberCacheDatasource not support getAccessToken");
+    }
 }
+

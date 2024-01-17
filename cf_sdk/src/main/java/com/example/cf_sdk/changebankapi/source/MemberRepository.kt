@@ -48,6 +48,10 @@ import com.example.cf_sdk.changebankapi.response.DocumentUploadResponse
 import com.example.cf_sdk.changebankapi.response.IdscanResponse
 import com.example.cf_sdk.changebankapi.response.VerifyOowResponse
 import com.example.cf_sdk.changebankapi.source.remote.MemberDatasource
+import com.example.cf_sdk.defination.request.AccessTokenParameter
+import com.example.cf_sdk.defination.request.AuthCodeParameter
+import com.example.cf_sdk.defination.response.AccessTokenResponse
+import com.example.cf_sdk.defination.response.AuthCodeResponse
 
 import com.google.common.base.Optional
 import io.reactivex.Completable
@@ -309,6 +313,14 @@ class MemberRepository(
 
     override fun getVersionConfig(settingsParameter: SettingsParameter?): Single<VersionConfig?>? {
         return mRemoteDatasource.getVersionConfig(settingsParameter)
+    }
+
+    override fun getAuthCode(authCodeParameter: AuthCodeParameter?): Single<AuthCodeResponse?>? {
+        return mRemoteDatasource.getAuthCode(authCodeParameter)
+    }
+
+    override fun getAccessToken(accessTokenParameter: AccessTokenParameter?): Single<AccessTokenResponse?>? {
+        return mRemoteDatasource.getAccessToken(accessTokenParameter)
     }
 
     override fun getUserProfile(parameters: UserProfileParameter?): Single<UserProfileResponse?>? {

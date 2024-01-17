@@ -47,6 +47,10 @@ import com.example.cf_sdk.defination.response.ChangebankResponse
 import com.example.cf_sdk.changebankapi.response.DocumentUploadResponse
 import com.example.cf_sdk.changebankapi.response.IdscanResponse
 import com.example.cf_sdk.changebankapi.response.VerifyOowResponse
+import com.example.cf_sdk.defination.request.AccessTokenParameter
+import com.example.cf_sdk.defination.request.AuthCodeParameter
+import com.example.cf_sdk.defination.response.AccessTokenResponse
+import com.example.cf_sdk.defination.response.AuthCodeResponse
 import com.google.common.base.Optional
 import io.reactivex.Completable
 import io.reactivex.Single
@@ -94,6 +98,8 @@ interface MemberDatasource {
     fun saveImageDocument(fileResponse: FileResponse?)
     fun log(logParameters: LogParameters?): Single<ChangebankResponse?>?
     fun getVersionConfig(settingsParameter: SettingsParameter?): Single<VersionConfig?>?
+    fun getAuthCode(authCodeParameter: AuthCodeParameter?):Single<AuthCodeResponse?>?
+    fun getAccessToken(accessTokenParameter: AccessTokenParameter?):Single<AccessTokenResponse?>?
     fun getUserProfile(userProfileParameter: UserProfileParameter?): Single<UserProfileResponse?>?
     fun getCardDetails(cardDetailParameter: CardDetailParameter?): Single<CardDetailResponse?>?
     fun getCardRelation(cardParameters: SubCardRelationParameter?): Single<List<ProductDetailsReponseItem?>?>?

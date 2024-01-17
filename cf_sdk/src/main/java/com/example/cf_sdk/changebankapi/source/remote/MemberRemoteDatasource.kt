@@ -51,6 +51,10 @@ import com.example.cf_sdk.changebankapi.response.DocumentUploadResponse
 import com.example.cf_sdk.changebankapi.response.IdscanResponse
 import com.example.cf_sdk.changebankapi.response.VerifyOowResponse
 import com.example.cf_sdk.defination.CFSDKConstant
+import com.example.cf_sdk.defination.request.AccessTokenParameter
+import com.example.cf_sdk.defination.request.AuthCodeParameter
+import com.example.cf_sdk.defination.response.AccessTokenResponse
+import com.example.cf_sdk.defination.response.AuthCodeResponse
 import com.google.common.base.Optional
 import com.google.common.io.BaseEncoding
 import io.reactivex.Completable
@@ -407,6 +411,18 @@ class MemberRemoteDatasource(private val mMemberApi: MemberApi, private val mCac
             settingsParameter?.os,
             settingsParameter?.applicationId
         )
+    }
+
+    override fun getAuthCode(authCodeParameter: AuthCodeParameter?): Single<AuthCodeResponse?>? {
+        return mMemberApi.getAuthCode(
+            "http://e49.vtxn-qadev.cf-cloud.net:8085/v1/auth/authorize",
+            authCodeParameter?.headers,
+            authCodeParameter
+        )
+    }
+
+    override fun getAccessToken(accessTokenParameter: AccessTokenParameter?): Single<AccessTokenResponse?>? {
+        return mMemberApi.getAccessToken("http://e49.vtxn-qadev.cf-cloud.net:8080/v1/auth/token",accessTokenParameter?.headers,accessTokenParameter)
     }
 
     override fun emailAvailability(evp: EmailValidationParameters?): Single<ChangebankResponse?>? {
