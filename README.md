@@ -86,8 +86,8 @@ Below code examples demonstrates to get the mobile settings data from the SDK PO
 
 ```
 CFSDKCall.getVersionConfig(
-            binding.edtBaseUrl.text.toString(),
-            binding.edtAppId.text.toString(),
+            "CF BASE URL",
+            "CF APPLICATION ID",
             object :
                 CFSDKResponseCallback<VersionConfig> {
                 override fun onSuccess(versionConfig: VersionConfig) {
