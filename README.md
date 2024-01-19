@@ -2,11 +2,11 @@
 Change Financial SDK POC is a sample SDK in which it have predefined functions which provide the data from change financial's CMS.
 
 # Table of Contents
-[Getting Started](#getting-started)
+1. [Getting Started](#getting-started)
 
-[Integration Guides](#integration-guides)
+2. [Integration Guides](#integration-guides)
 
-[Code Examples](#code-examples)
+3. [Code Examples](#code-examples)
 
 - - - -
 
