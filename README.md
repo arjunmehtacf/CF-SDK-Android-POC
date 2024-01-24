@@ -38,7 +38,7 @@ To integrate the Change Financials SDK POC into any other project please follow 
 1. Create a Personal Access Token (PAT) on https://www.github.com.  
    Please follow [this guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token) to create a PAT and make sure to select the `read:packages` scope.
 2. Add the following to the **project level** `settings.gradle`:
-    ```
+    ```groovy
     dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -56,13 +56,13 @@ To integrate the Change Financials SDK POC into any other project please follow 
    }
     ```
 3. Add the below dependency in your app level `build.gradle` file in dependency section.
-  ```
+  ```groovy
 dependencies {
       implementation 'com.changefinancial:sdkpoc:1.0.11'
 }
 ```
 4. Add the below supporting dependencies to the app level `build.gradle` file in the dependency section ( It is optional if you already have in your project).
-```
+```groovy
 dependencies {
     implementation "com.google.code.gson:gson:2.8.1"
     implementation "com.squareup.okhttp3:logging-interceptor:3.4.1"
@@ -84,7 +84,7 @@ dependencies {
 
 Below code examples demonstrates to get the mobile settings data from the SDK POC.
 
-```
+```groovy
 CFSDKCall.getVersionConfig(
             "CF BASE URL",
             "CF APPLICATION ID",
