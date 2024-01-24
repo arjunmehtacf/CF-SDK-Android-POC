@@ -1,4 +1,4 @@
-package com.example.cf_sdk.changebankapi.model.member;
+package com.example.cf_sdk.defination.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -75,5 +75,14 @@ public class UserProfileResponse {
     @SerializedName("customerNumber")
     @Expose
     private String customerNumber = "";
+
+    public String toRawString() {
+        return "applicationID='" + applicationID + '\'' +
+                ", \nphoneNumber='" + phoneNumber + '\'' +
+                ", \nemailAddress='" + emailAddress + '\'' +
+                ", \nfirstName='" + firstName + '\'' +
+                ", \nlastName='" + lastName + '\'' +
+                ", \ncustomerNumber='" + customerNumber + '\'';
+    }
     
 }

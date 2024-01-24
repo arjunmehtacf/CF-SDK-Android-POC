@@ -6,7 +6,8 @@ package com.example.cf_sdk.changebankapi.network.api;
 
 
 import com.example.cf_sdk.changebankapi.Endpoints;
-import com.example.cf_sdk.changebankapi.model.Session;
+import com.example.cf_sdk.defination.request.AccessTokenParameter;
+import com.example.cf_sdk.defination.response.Session;
 import com.example.cf_sdk.changebankapi.model.member.SecurityProfile;
 import com.example.cf_sdk.changebankapi.parameter.authentication.LoginParameters;
 import com.example.cf_sdk.changebankapi.parameter.authentication.ResetPassword;
@@ -51,6 +52,13 @@ public interface AuthenticationApi {
     @Headers("Content-Type: application/json")
     Single<Session> login(@Url String url, @HeaderMap Map<String, String> headers,
                               @Body LoginParameters loginParameters);
+
+    @POST
+    @Headers("Content-Type: application/json")
+    Single<Session> getAccessToken(@Url String url,
+                                   @HeaderMap Map<String, String> headers,
+                                   @Body AccessTokenParameter accessTokenParameter);
+
 
     /**
      * Update member credentials.

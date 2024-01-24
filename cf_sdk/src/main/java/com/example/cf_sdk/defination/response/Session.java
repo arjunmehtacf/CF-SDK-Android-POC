@@ -1,6 +1,8 @@
-package com.example.cf_sdk.changebankapi.model;
+package com.example.cf_sdk.defination.response;
 
 
+import com.example.cf_sdk.changebankapi.model.Features;
+import com.example.cf_sdk.changebankapi.model.Role;
 import com.google.gson.annotations.SerializedName;
 
 /**

@@ -3,9 +3,12 @@ package com.example.cf_sdk.changebankapi.source.local;
 import android.content.SharedPreferences;
 
 
+import androidx.annotation.Nullable;
+
 import com.example.cf_sdk.changebankapi.fingerprint.FingerprintHelper;
 import com.example.cf_sdk.changebankapi.model.FingerprintResponse;
-import com.example.cf_sdk.changebankapi.model.Session;
+import com.example.cf_sdk.defination.request.AccessTokenParameter;
+import com.example.cf_sdk.defination.response.Session;
 import com.example.cf_sdk.changebankapi.model.member.SecurityProfile;
 import com.example.cf_sdk.changebankapi.parameter.Parameters;
 import com.example.cf_sdk.changebankapi.parameter.authentication.GetSecurityProfileParameters;
@@ -250,4 +253,10 @@ public class AuthenticationLocalDataSource
     }
 
 
+    @Nullable
+    @Override
+    public Single<Session> getAccessToken(@Nullable AccessTokenParameter accessTokenParameter) {
+        throw new UnsupportedOperationException(
+                "AuthenticationRemoteDatasource not support getAccessToken");
+    }
 }

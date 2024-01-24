@@ -2,14 +2,14 @@ package com.example.cf_sdk.changebankapi.source.remote
 
 
 import com.example.cf_sdk.changebankapi.model.FileResponse
-import com.example.cf_sdk.changebankapi.model.Session
+import com.example.cf_sdk.defination.response.Session
 import com.example.cf_sdk.changebankapi.model.account.ProductDetailsReponseItem
 import com.example.cf_sdk.changebankapi.model.member.ActivateCardResponse
 import com.example.cf_sdk.changebankapi.model.member.CardDetailResponse
 import com.example.cf_sdk.changebankapi.model.member.DocumentApiResponse
 import com.example.cf_sdk.changebankapi.model.member.MemberDetails
 import com.example.cf_sdk.changebankapi.model.member.RSAPublicKeyResponse
-import com.example.cf_sdk.changebankapi.model.member.UserProfileResponse
+import com.example.cf_sdk.defination.response.UserProfileResponse
 import com.example.cf_sdk.defination.response.version.VersionConfig
 import com.example.cf_sdk.changebankapi.model.oow.OowQuestions
 import com.example.cf_sdk.changebankapi.parameter.account.CardToCardTransferParameters
@@ -38,7 +38,7 @@ import com.example.cf_sdk.changebankapi.parameter.member.SetESignAgreementAccept
 import com.example.cf_sdk.defination.request.SettingsParameter
 import com.example.cf_sdk.changebankapi.parameter.member.UpdateEmailAddressParameters
 import com.example.cf_sdk.changebankapi.parameter.member.UploadDocumentsParameters
-import com.example.cf_sdk.changebankapi.parameter.member.UserProfileParameter
+import com.example.cf_sdk.defination.request.UserProfileParameter
 import com.example.cf_sdk.changebankapi.parameter.member.VerifyOutOfWalletParameters
 import com.example.cf_sdk.changebankapi.parameter.member.VerifyPhoneCodeParameters
 import com.example.cf_sdk.changebankapi.parameter.validation.EmailValidationParameters
@@ -49,7 +49,6 @@ import com.example.cf_sdk.changebankapi.response.IdscanResponse
 import com.example.cf_sdk.changebankapi.response.VerifyOowResponse
 import com.example.cf_sdk.defination.request.AccessTokenParameter
 import com.example.cf_sdk.defination.request.AuthCodeParameter
-import com.example.cf_sdk.defination.response.AccessTokenResponse
 import com.example.cf_sdk.defination.response.AuthCodeResponse
 import com.google.common.base.Optional
 import io.reactivex.Completable
@@ -99,7 +98,6 @@ interface MemberDatasource {
     fun log(logParameters: LogParameters?): Single<ChangebankResponse?>?
     fun getVersionConfig(settingsParameter: SettingsParameter?): Single<VersionConfig?>?
     fun getAuthCode(authCodeParameter: AuthCodeParameter?):Single<AuthCodeResponse?>?
-    fun getAccessToken(accessTokenParameter: AccessTokenParameter?):Single<AccessTokenResponse?>?
     fun getUserProfile(userProfileParameter: UserProfileParameter?): Single<UserProfileResponse?>?
     fun getCardDetails(cardDetailParameter: CardDetailParameter?): Single<CardDetailResponse?>?
     fun getCardRelation(cardParameters: SubCardRelationParameter?): Single<List<ProductDetailsReponseItem?>?>?

@@ -1,37 +1,37 @@
 package com.example.cf_sdk.changebankapi.task
 
-
 import com.example.cf_sdk.changebankapi.ErrorHandler
 import com.example.cf_sdk.changebankapi.log.LogManager
-import com.example.cf_sdk.defination.response.version.VersionConfig
+import com.example.cf_sdk.changebankapi.model.Header
 import com.example.cf_sdk.changebankapi.network.RetrofitFactory
+import com.example.cf_sdk.changebankapi.network.api.AccountApiCreator
 import com.example.cf_sdk.changebankapi.network.api.ApiConfig
-import com.example.cf_sdk.changebankapi.network.api.MemberApiCreator
-import com.example.cf_sdk.defination.request.SettingsParameter
-import com.example.cf_sdk.changebankapi.source.MemberRepository
-import com.example.cf_sdk.changebankapi.source.cache.MemberCacheDatasource
+import com.example.cf_sdk.changebankapi.parameter.Parameters
+import com.example.cf_sdk.changebankapi.parameter.StringParameters
+import com.example.cf_sdk.defination.response.AccountsApiResponse
+import com.example.cf_sdk.changebankapi.source.AccountRepository
+import com.example.cf_sdk.changebankapi.source.cache.AccountCacheDatasource
+import com.example.cf_sdk.changebankapi.source.datasource.AccountDatasource
+import com.example.cf_sdk.changebankapi.source.remote.AccountRemoteDatasource
 import com.example.cf_sdk.changebankapi.source.remote.AuthenticationDatasource
-import com.example.cf_sdk.changebankapi.source.remote.MemberDatasource
-import com.example.cf_sdk.changebankapi.source.remote.MemberRemoteDatasource
 import com.example.cf_sdk.changebankapi.usecase.ExecutionThread
 import com.example.cf_sdk.changebankapi.usecase.IOThread
 import com.example.cf_sdk.changebankapi.usecase.SingleUseCase
 import com.example.cf_sdk.changebankapi.usecase.UIThread
 import com.example.cf_sdk.changebankapi.util.ChangebankError
-
-
+import com.example.cf_sdk.defination.CFSDKConstant
+import com.example.cf_sdk.defination.response.Session
 import io.reactivex.Single
 import retrofit2.Retrofit
 import java.io.File
 
-/**
- *
- * Task for version config.
- */
-class VersionConfigTask : SingleUseCase<SettingsParameter?, VersionConfig?>(
-    createBackgroundExecutionThread(), createUiExecutionThread(), createErrorHandler()
-) {
-    private var mMemberRepository: MemberDatasource? = null
+
+class GetAccountsTask (val session: Session) :
+    SingleUseCase<Parameters, AccountsApiResponse?>(
+        createBackgroundExecutionThread(), createUiExecutionThread(), createErrorHandler()
+    ) {
+    private var mAccountRepository: AccountDatasource? = null
+    private var mAuthenticationRepository: AuthenticationDatasource? = null
 
     init {
         initializeDependencies()
@@ -40,22 +40,7 @@ class VersionConfigTask : SingleUseCase<SettingsParameter?, VersionConfig?>(
     private fun initializeDependencies() {
         // Manually create instances of your classes here
         val cacheDirectory = createCacheDirectoryInstance()
-
-        // Create instances of your data sources
-        val memberRepository: MemberDatasource = MemberCacheDatasource()
-
-        // Create an instance of MemberRepository
-        mMemberRepository = MemberRepository(
-            MemberRemoteDatasource(
-                MemberApiCreator().create(LogManager().logger, RetrofitFactory().getRetrofit())!!,
-                cacheDirectory
-            ),
-            (memberRepository as MemberCacheDatasource)
-        )
-    }
-
-    override fun buildUseCaseObservable(parameters: SettingsParameter?): Single<VersionConfig?> {
-        return mMemberRepository?.getVersionConfig(parameters)!!
+        mAccountRepository = AccountRepository(AccountRemoteDatasource(AccountApiCreator().create(LogManager().logger,RetrofitFactory().getRetrofit()),cacheDirectory),AccountRemoteDatasource(AccountApiCreator().create(LogManager().logger,RetrofitFactory().getRetrofit()),cacheDirectory),AccountCacheDatasource())
     }
 
     companion object {
@@ -78,5 +63,11 @@ class VersionConfigTask : SingleUseCase<SettingsParameter?, VersionConfig?>(
                 Retrofit.Builder().baseUrl(ApiConfig.AUTHENTICATION_BASE_ENDPOINT).build()
             return ErrorHandler<Any?>(retrofit)
         }
+    }
+
+    override fun buildUseCaseObservable(parameters: Parameters): Single<AccountsApiResponse?> {
+        val stringParameters: StringParameters = StringParameters.create("001000001261")
+        stringParameters.addHeader(Header.TOKEN, CFSDKConstant.TOEKN_TYPE + " " + session.token)
+        return mAccountRepository?.getMemberAccounts(stringParameters)!!
     }
 }

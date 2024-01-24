@@ -1,9 +1,12 @@
 package com.example.cf_sdk.changebankapi.source.cache;
 
 
+import androidx.annotation.Nullable;
+
 import com.example.cf_sdk.changebankapi.exception.SessionExpiredException;
 import com.example.cf_sdk.changebankapi.model.FingerprintResponse;
-import com.example.cf_sdk.changebankapi.model.Session;
+import com.example.cf_sdk.defination.request.AccessTokenParameter;
+import com.example.cf_sdk.defination.response.Session;
 import com.example.cf_sdk.changebankapi.model.member.SecurityProfile;
 import com.example.cf_sdk.changebankapi.parameter.Parameters;
 import com.example.cf_sdk.changebankapi.parameter.authentication.GetSecurityProfileParameters;
@@ -183,5 +186,12 @@ public class AuthenticationCacheDatasource implements AuthenticationDatasource {
     public Completable clearPasscode() {
         throw new UnsupportedOperationException(
                 "AuthenticationCacheDatasource not support clearPasscode");
+    }
+
+    @Nullable
+    @Override
+    public Single<Session> getAccessToken(@Nullable AccessTokenParameter accessTokenParameter) {
+        throw new UnsupportedOperationException(
+                "MemberCacheDatasource not support getAccessToken");
     }
 }

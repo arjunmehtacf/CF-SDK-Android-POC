@@ -3,7 +3,7 @@ package com.example.cf_sdk.changebankapi.network.api;
 
 
 import com.example.cf_sdk.changebankapi.Endpoints;
-import com.example.cf_sdk.changebankapi.model.Session;
+import com.example.cf_sdk.defination.response.Session;
 import com.example.cf_sdk.changebankapi.model.account.ProductDetailsReponseItem;
 import com.example.cf_sdk.changebankapi.model.member.ActivateCardResponse;
 import com.example.cf_sdk.changebankapi.model.member.CardDetailResponse;
@@ -11,10 +11,9 @@ import com.example.cf_sdk.changebankapi.model.member.DocumentApiResponse;
 import com.example.cf_sdk.changebankapi.model.member.MemberDetails;
 import com.example.cf_sdk.changebankapi.model.member.RSAPublicKeyResponse;
 import com.example.cf_sdk.changebankapi.model.member.UploadProfilePictureApiResponse;
-import com.example.cf_sdk.changebankapi.model.member.UserProfileResponse;
+import com.example.cf_sdk.defination.response.UserProfileResponse;
 import com.example.cf_sdk.defination.request.AccessTokenParameter;
 import com.example.cf_sdk.defination.request.AuthCodeParameter;
-import com.example.cf_sdk.defination.response.AccessTokenResponse;
 import com.example.cf_sdk.defination.response.AuthCodeResponse;
 import com.example.cf_sdk.defination.response.version.VersionConfig;
 import com.example.cf_sdk.changebankapi.model.oow.OowQuestions;
@@ -257,11 +256,6 @@ public interface MemberApi {
     @GET
     Single<VersionConfig> getVersionConfig(@Url String baseUrl, @Query("os") String OperatingSystem, @Query("applicationID") String applicationId);
 
-    @POST
-    @Headers("Content-Type: application/json")
-    Single<AccessTokenResponse> getAccessToken(@Url String url,
-                                               @HeaderMap Map<String, String> headers,
-                                               @Body AccessTokenParameter accessTokenParameter);
 
     @POST
     @Headers("Content-Type: application/json")

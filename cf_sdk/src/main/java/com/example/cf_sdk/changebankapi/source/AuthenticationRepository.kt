@@ -1,9 +1,7 @@
 package com.example.cf_sdk.changebankapi.source;
 
 
-
 import com.example.cf_sdk.changebankapi.model.FingerprintResponse
-import com.example.cf_sdk.changebankapi.model.Session
 import com.example.cf_sdk.changebankapi.model.member.SecurityProfile
 import com.example.cf_sdk.changebankapi.parameter.Parameters
 import com.example.cf_sdk.changebankapi.parameter.authentication.GetSecurityProfileParameters
@@ -13,14 +11,17 @@ import com.example.cf_sdk.changebankapi.parameter.authentication.ResendTwoFactor
 import com.example.cf_sdk.changebankapi.parameter.authentication.SecurityProfileParameters
 import com.example.cf_sdk.changebankapi.parameter.authentication.TwoFactorParameters
 import com.example.cf_sdk.changebankapi.parameter.authentication.UsernameParameters
-import com.example.cf_sdk.defination.response.ChangebankResponse
 import com.example.cf_sdk.changebankapi.source.remote.AuthenticationDatasource
-
+import com.example.cf_sdk.defination.request.AccessTokenParameter
+import com.example.cf_sdk.defination.response.ChangebankResponse
+import com.example.cf_sdk.defination.response.Session
 import com.google.common.base.Optional
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
+import io.reactivex.SingleSource
 import io.reactivex.functions.Consumer
+import io.reactivex.functions.Function
 
 /**
  *
@@ -29,11 +30,9 @@ import io.reactivex.functions.Consumer
 class AuthenticationRepository(
     private val mRemoteDatasource: AuthenticationDatasource,
     private val mLocalDatasource: AuthenticationDatasource,
-    private val mCacheDatasource: AuthenticationDatasource
+    private val mCacheDatasource: AuthenticationDatasource,
 ) : AuthenticationDatasource {
     private val saveSession = Consumer<Session?> { session -> saveSession(session) }
-
-
 
 
     override val session: Single<Session?>?
@@ -55,7 +54,6 @@ class AuthenticationRepository(
     override fun logout(parameters: Parameters?): Single<ChangebankResponse?>? {
         return mRemoteDatasource.logout(parameters)
     }
-
 
 
     override fun saveSession(session: Session?) {
@@ -130,6 +128,10 @@ class AuthenticationRepository(
 
     override fun clearPasscode(): Completable? {
         return mLocalDatasource.clearPasscode()
+    }
+
+    override fun getAccessToken(accessTokenParameter: AccessTokenParameter?): Single<Session?>? {
+        return mRemoteDatasource.getAccessToken(accessTokenParameter)
     }
 
     companion object {

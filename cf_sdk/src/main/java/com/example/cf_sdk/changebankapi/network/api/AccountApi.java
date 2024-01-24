@@ -27,7 +27,7 @@ import com.example.cf_sdk.changebankapi.parameter.account.UpdateCardStatusParame
 import com.example.cf_sdk.changebankapi.parameter.account.VerifyAchTransferParameters;
 import com.example.cf_sdk.changebankapi.parameter.account.VerifyMicroDepositAchAccountParameters;
 import com.example.cf_sdk.changebankapi.response.AccountBalanceResponse;
-import com.example.cf_sdk.changebankapi.response.AccountsApiResponse;
+import com.example.cf_sdk.defination.response.AccountsApiResponse;
 import com.example.cf_sdk.changebankapi.response.AchAccountsApiResponse;
 import com.example.cf_sdk.changebankapi.response.AchHistoryResponse;
 import com.example.cf_sdk.changebankapi.response.AchTransferResponse;

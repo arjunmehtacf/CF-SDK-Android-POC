@@ -495,5 +495,22 @@ public class Account {
                 cardList,
                 mRoutingNumber, accountCurrencyCode, accountCurrentBalance, virtual, allowTransfer, allowSubcards, programID, subcard);
     }
+
+    @Override
+    public String toString() {
+        return "\n\naccounts {" +
+                ", \ncardNumberMasked='" + cardNumberMasked + '\'' +
+                ", \ncardToken='" + cardToken + '\'' +
+                ", \nvirtual=" + virtual +
+                ", \nallowSubcards=" + allowSubcards +
+                ", \nsubcard=" + subcard +
+                ", \nallowTransfer=" + allowTransfer +
+                ", \nexpiryDate='" + expiryDate + '\'' +
+                ", \nvalidFromDate='" + validFromDate + '\'' +
+                ", \ncardStatus='" + cardStatus + '\'' +
+                ", \ncardType='" + cardType + '\'' +
+                ", \nprogramID='" + programID + '\'' +
+                '}';
+    }
 }
 

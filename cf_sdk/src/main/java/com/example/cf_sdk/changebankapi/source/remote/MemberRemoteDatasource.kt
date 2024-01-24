@@ -3,7 +3,7 @@ package com.example.cf_sdk.changebankapi.source.remote
 
 import com.example.cf_sdk.changebankapi.Endpoints
 import com.example.cf_sdk.changebankapi.model.FileResponse
-import com.example.cf_sdk.changebankapi.model.Session
+import com.example.cf_sdk.defination.response.Session
 import com.example.cf_sdk.changebankapi.model.account.ProductDetailsReponseItem
 import com.example.cf_sdk.changebankapi.model.member.ActivateCardResponse
 import com.example.cf_sdk.changebankapi.model.member.CardDetailResponse
@@ -11,7 +11,7 @@ import com.example.cf_sdk.changebankapi.model.member.DocumentApiResponse
 import com.example.cf_sdk.changebankapi.model.member.MemberDetails
 import com.example.cf_sdk.changebankapi.model.member.RSAPublicKeyResponse
 import com.example.cf_sdk.changebankapi.model.member.UploadProfilePictureApiResponse
-import com.example.cf_sdk.changebankapi.model.member.UserProfileResponse
+import com.example.cf_sdk.defination.response.UserProfileResponse
 import com.example.cf_sdk.defination.response.version.VersionConfig
 import com.example.cf_sdk.changebankapi.model.oow.OowQuestions
 import com.example.cf_sdk.changebankapi.network.api.MemberApi
@@ -41,7 +41,7 @@ import com.example.cf_sdk.changebankapi.parameter.member.SetESignAgreementAccept
 import com.example.cf_sdk.defination.request.SettingsParameter
 import com.example.cf_sdk.changebankapi.parameter.member.UpdateEmailAddressParameters
 import com.example.cf_sdk.changebankapi.parameter.member.UploadDocumentsParameters
-import com.example.cf_sdk.changebankapi.parameter.member.UserProfileParameter
+import com.example.cf_sdk.defination.request.UserProfileParameter
 import com.example.cf_sdk.changebankapi.parameter.member.VerifyOutOfWalletParameters
 import com.example.cf_sdk.changebankapi.parameter.member.VerifyPhoneCodeParameters
 import com.example.cf_sdk.changebankapi.parameter.validation.EmailValidationParameters
@@ -53,7 +53,6 @@ import com.example.cf_sdk.changebankapi.response.VerifyOowResponse
 import com.example.cf_sdk.defination.CFSDKConstant
 import com.example.cf_sdk.defination.request.AccessTokenParameter
 import com.example.cf_sdk.defination.request.AuthCodeParameter
-import com.example.cf_sdk.defination.response.AccessTokenResponse
 import com.example.cf_sdk.defination.response.AuthCodeResponse
 import com.google.common.base.Optional
 import com.google.common.io.BaseEncoding
@@ -421,9 +420,7 @@ class MemberRemoteDatasource(private val mMemberApi: MemberApi, private val mCac
         )
     }
 
-    override fun getAccessToken(accessTokenParameter: AccessTokenParameter?): Single<AccessTokenResponse?>? {
-        return mMemberApi.getAccessToken("http://e49.vtxn-qadev.cf-cloud.net:8080/v1/auth/token",accessTokenParameter?.headers,accessTokenParameter)
-    }
+
 
     override fun emailAvailability(evp: EmailValidationParameters?): Single<ChangebankResponse?>? {
         return mMemberApi.emailAvailability(evp!!.headers, evp)

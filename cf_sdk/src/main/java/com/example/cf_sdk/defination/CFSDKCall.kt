@@ -3,7 +3,10 @@ package com.example.cf_sdk.defination
 import com.example.cf_sdk.defination.response.version.VersionConfig
 import com.example.cf_sdk.changebankapi.sdkcore.CFSDKApi
 import com.example.cf_sdk.defination.response.AccessTokenResponse
+import com.example.cf_sdk.defination.response.AccountsApiResponse
 import com.example.cf_sdk.defination.response.AuthCodeResponse
+import com.example.cf_sdk.defination.response.Session
+import com.example.cf_sdk.defination.response.UserProfileResponse
 
 
 object CFSDKCall {
@@ -32,8 +35,16 @@ object CFSDKCall {
     fun getAccessToken(
         authCode: String,
         sdkSessionId: String,
-        responseCallback: CFSDKResponseCallback<AccessTokenResponse>,
+        responseCallback: CFSDKResponseCallback<Session>,
     ) {
         return cfsdkProvider.callAccessToken(authCode, sdkSessionId, responseCallback)
+    }
+
+    fun getUserProfileInfo(responseCallback: CFSDKResponseCallback<UserProfileResponse>){
+        return cfsdkProvider.callGetUserProfile(responseCallback)
+    }
+
+    fun getAccountsData(responseCallback: CFSDKResponseCallback<AccountsApiResponse>){
+        return cfsdkProvider.callGetMemberAccounts(responseCallback)
     }
 }

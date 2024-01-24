@@ -2,7 +2,7 @@ package com.example.cf_sdk.changebankapi.source.remote;
 
 
 import com.example.cf_sdk.changebankapi.model.FingerprintResponse
-import com.example.cf_sdk.changebankapi.model.Session
+import com.example.cf_sdk.defination.response.Session
 import com.example.cf_sdk.changebankapi.model.member.SecurityProfile
 import com.example.cf_sdk.changebankapi.network.api.AuthenticationApi
 import com.example.cf_sdk.changebankapi.parameter.Parameters
@@ -15,6 +15,7 @@ import com.example.cf_sdk.changebankapi.parameter.authentication.TwoFactorParame
 import com.example.cf_sdk.changebankapi.parameter.authentication.UsernameParameters
 import com.example.cf_sdk.defination.response.ChangebankResponse
 import com.example.cf_sdk.changebankapi.source.AuthenticationRepository
+import com.example.cf_sdk.defination.request.AccessTokenParameter
 
 
 import com.google.common.base.Optional
@@ -134,6 +135,12 @@ class AuthenticationRemoteDatasource(private val mAuthenticationApi: Authenticat
             securityProfileParameters
         )
     }
+
+    override fun getAccessToken(accessTokenParameter: AccessTokenParameter?): Single<Session?>? {
+        // todo: Replace url it with new one
+        return mAuthenticationApi.getAccessToken("http://e49.vtxn-qadev.cf-cloud.net:8080/v1/auth/token",accessTokenParameter?.headers,accessTokenParameter)
+    }
+
 
     override fun getSecurityProfile(getSecurityProfileParameters: GetSecurityProfileParameters?): Single<SecurityProfile?>? {
         return mAuthenticationApi.getSecurityProfile(

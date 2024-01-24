@@ -1,5 +1,6 @@
 package com.example.cf_sdk.changebankapi.model;
 
+import com.example.cf_sdk.defination.response.Session;
 import com.google.gson.annotations.SerializedName;
 
 /**

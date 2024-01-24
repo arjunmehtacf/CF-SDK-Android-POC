@@ -6,69 +6,148 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <EditText
-        android:id="@+id/edtBaseUrl"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputBaseUrl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="104dp"
-        android:hint="Enter Base URL"
-        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/edtAppId"
+        <EditText
+            android:id="@+id/edtBaseUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="104dp"
+            android:enabled="false"
+            android:hint="Base URL"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputApplicationId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:hint="Enter Application ID"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtBaseUrl" />
+        app:layout_constraintTop_toBottomOf="@+id/inputBaseUrl">
+
+        <EditText
+            android:id="@+id/edtCardHolderId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:hint="Cardholder Id"
+            android:textColor="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnGetSettings"
+        android:id="@+id/btnAuthorize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Get Mobile Settings"
+        android:text="Authorisation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtAppId" />
+        app:layout_constraintTop_toBottomOf="@+id/inputApplicationId" />
 
-    <TextView
-        android:id="@+id/tvResponse"
-        android:layout_width="wrap_content"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputAuthCode"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Response:"
-        app:layout_constraintTop_toBottomOf="@+id/btnGetAuthCode"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
+        tools:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAuthorize">
+
+        <EditText
+            android:id="@+id/edtAuthCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:hint="Auth Code"
+            android:enabled="false"
+            android:textColor="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
-        android:id="@+id/btnGetAuthCode"
+        android:id="@+id/btnConfigureSDK"
         android:layout_width="wrap_content"
-        android:text="Authenticate"
-        app:layout_constraintTop_toBottomOf="@+id/btnGetSettings"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_height="wrap_content"/>
+        android:text="Configure SDK"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputAuthCode" />
+
+    <Button
+        android:id="@+id/btnUserProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="User Profile"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/btnCardAccountList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConfigureSDK" />
+
+
+    <Button
+        android:id="@+id/btnCardAccountList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:text="Card/Account List"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnUserProfile"
+        app:layout_constraintTop_toBottomOf="@+id/btnConfigureSDK" />
+
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUserProfile">
+
+        <TextView
+            android:id="@+id/tvResponse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="Response:"
+            android:textSize="18sp" />
+    </ScrollView>
 
     <Button
         android:id="@+id/btnGoToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="30dp"
         android:text="Go To Login Screen"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="30dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
