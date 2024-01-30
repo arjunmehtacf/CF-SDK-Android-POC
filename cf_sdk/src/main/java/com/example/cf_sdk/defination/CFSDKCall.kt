@@ -8,7 +8,9 @@ import com.example.cf_sdk.defination.response.AuthCodeResponse
 import com.example.cf_sdk.defination.response.Session
 import com.example.cf_sdk.defination.response.UserProfileResponse
 
-
+/**
+ * CFSDKCall is singleton class for calling functions of ChangeFinancials SDK.
+ */
 object CFSDKCall {
     private val cfsdkProvider: CFSDKProvider = CFSDKApi()
 
@@ -40,10 +42,12 @@ object CFSDKCall {
         return cfsdkProvider.callAccessToken(authCode, sdkSessionId, responseCallback)
     }
 
+    // To get user profile data
     fun getUserProfileInfo(responseCallback: CFSDKResponseCallback<UserProfileResponse>){
         return cfsdkProvider.callGetUserProfile(responseCallback)
     }
 
+    // To get account list
     fun getAccountsData(responseCallback: CFSDKResponseCallback<AccountsApiResponse>){
         return cfsdkProvider.callGetMemberAccounts(responseCallback)
     }

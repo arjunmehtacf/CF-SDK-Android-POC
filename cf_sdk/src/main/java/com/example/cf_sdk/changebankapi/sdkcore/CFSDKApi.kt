@@ -28,9 +28,7 @@ class CFSDKApi : CFSDKProvider {
 
     lateinit var session: Session
 
-    /**
-     * This function is used to get mobile settings data from server
-     */
+    // This function is used to get mobile settings data from server
     override fun callVersionConfigFunction(
         baseUrl: String,
         appId: String,
@@ -43,9 +41,7 @@ class CFSDKApi : CFSDKProvider {
         settingsParameter.applicationId = appId
         VersionConfigTask().execute(object :
             ChangebankSingleObserver<VersionConfig> {
-            override fun onSubscribe(d: Disposable) {
-
-            }
+            override fun onSubscribe(d: Disposable) {}
 
             override fun onError(e: Throwable) {
                 responseCallback.onFailure(CFSDKErrorHandler.handleAPIError(e))
@@ -64,7 +60,6 @@ class CFSDKApi : CFSDKProvider {
         sdkSessionId: String,
         responseCallback: CFSDKResponseCallback<AuthCodeResponse>,
     ) {
-
         val authCodeParameter =
             AuthCodeParameter(HashMap())
         authCodeParameter.cardholderId = cardHolderId
@@ -72,9 +67,7 @@ class CFSDKApi : CFSDKProvider {
         authCodeParameter.sdkSessionId = sdkSessionId
         authCodeParameter.addToken("Bearer xL5I9DCkb5jqd9o5iJ2a2MVSkm+OP7IwtrVABfElC9dphvQLWPgkuQEdSRhi0dU0")
         AuthCodeTask().execute(object : ChangebankSingleObserver<AuthCodeResponse> {
-            override fun onSubscribe(d: Disposable) {
-
-            }
+            override fun onSubscribe(d: Disposable) {}
 
             override fun onError(error: Throwable) {
                 responseCallback.onFailure(CFSDKErrorHandler.handleAPIError(error))
@@ -99,9 +92,7 @@ class CFSDKApi : CFSDKProvider {
         accessTokenParameter.addToken("Bearer xL5I9DCkb5jqd9o5iJ2a2MVSkm+OP7IwtrVABfElC9dphvQLWPgkuQEdSRhi0dU0")
         accessTokenParameter.headers.put(CFSDKConstant.X_APPLICATION_ID,"f4665ee1-f8c1-4111-baa5-e755a2e83320")
         AccessTokenTask().execute(object : ChangebankSingleObserver<Session> {
-            override fun onSubscribe(d: Disposable) {
-
-            }
+            override fun onSubscribe(d: Disposable) {}
 
             override fun onError(error: Throwable) {
                 responseCallback.onFailure(CFSDKErrorHandler.handleAPIError(error))
@@ -114,11 +105,10 @@ class CFSDKApi : CFSDKProvider {
         }, accessTokenParameter)
     }
 
+    // To get user profile data
     override fun callGetUserProfile(responseCallback: CFSDKResponseCallback<UserProfileResponse>) {
         UserProfileTask(session).execute(object : ChangebankSingleObserver<UserProfileResponse>{
-            override fun onSubscribe(d: Disposable) {
-
-            }
+            override fun onSubscribe(d: Disposable) {}
 
             override fun onError(e: Throwable) {
                 responseCallback.onFailure(CFSDKErrorHandler.handleAPIError(e))
@@ -131,11 +121,10 @@ class CFSDKApi : CFSDKProvider {
             UserProfileParameter.create())
     }
 
+    // To get member accounts list
     override fun callGetMemberAccounts(responseCallback: CFSDKResponseCallback<AccountsApiResponse>) {
         GetAccountsTask(session).execute(object : ChangebankSingleObserver<AccountsApiResponse>{
-            override fun onSubscribe(d: Disposable) {
-
-            }
+            override fun onSubscribe(d: Disposable) {}
 
             override fun onError(e: Throwable) {
                 responseCallback.onFailure(CFSDKErrorHandler.handleAPIError(e))
