@@ -1,12 +1,10 @@
-package com.example.cf_sdk.changebankapi.network.api;
+package com.example.cf_sdk.changebankapi.network.api
 
-import com.example.cf_sdk.changebankapi.log.Logger;
+import com.example.cf_sdk.changebankapi.log.Logger
+import retrofit2.Retrofit
 
-import retrofit2.Retrofit;
-
-public class AuthenticationApiCreator implements ApiCreator<AuthenticationApi> {
-    @Override
-    public AuthenticationApi create(Logger logger, Retrofit retrofit) {
-        return retrofit.create(AuthenticationApi.class);
+class AuthenticationApiCreator : ApiCreator<AuthenticationApi?> {
+    override fun create(logger: Logger?, retrofit: Retrofit?): AuthenticationApi {
+        return retrofit!!.create(AuthenticationApi::class.java)
     }
 }
