@@ -19,16 +19,16 @@ import com.example.cf_sdk_android_poc.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    var applicationId = "f4665ee1-f8c1-4111-baa5-e755a2e83320"
+    lateinit var customerNumber: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityMainBinding.inflate(getLayoutInflater())
         setContentView(binding.root)
         binding.edtBaseUrl.setText("https://alb-internal.vtxn-qadev.cf-cloud.net/v1/")
         binding.edtCardHolderId.setText("9cf152e0-6c7b-462e-b78d-5ee4d37e566a")
         binding.btnAuthorize.setOnClickListener {
-            if (binding.edtCardHolderId.text.isNotEmpty()) {
+            if (binding.edtCardHolderId.text?.isNotEmpty() == true) {
                 callAuthCode()
             } else {
                 Toast.makeText(this@MainActivity, "Please provide valid input", Toast.LENGTH_SHORT)
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.btnUserProfile.setOnClickListener {
-            if (binding.edtBaseUrl.text.isNotEmpty() && binding.edtCardHolderId.text.isNotEmpty()) {
+            if (binding.edtBaseUrl.text?.isNotEmpty() == true && binding.edtCardHolderId.text?.isNotEmpty() == true) {
                 callGetUserProfileData()
             } else {
                 Toast.makeText(this@MainActivity, "Please provide valid input", Toast.LENGTH_SHORT)
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.btnConfigureSDK.setOnClickListener {
-            if (binding.edtAuthCode.text.isNotEmpty()) {
+            if (binding.edtAuthCode.text?.isNotEmpty() == true) {
                 callAccessToken(binding.edtAuthCode.text.toString())
             } else {
                 Toast.makeText(this@MainActivity, "Please provide valid input", Toast.LENGTH_SHORT)
@@ -53,8 +53,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnCardAccountList.setOnClickListener {
-            if (binding.edtAuthCode.text.isNotEmpty()) {
-                callGetAccountsData()
+            if (binding.edtAuthCode.text?.isNotEmpty() == true) {
+                callGetAccountsData(customerNumber)
             } else {
                 Toast.makeText(this@MainActivity, "Please provide valid input", Toast.LENGTH_SHORT)
                     .show()
@@ -62,37 +62,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun callGetUserProfile() {
-        CFSDKCall.getVersionConfig(
-            binding.edtBaseUrl.text.toString(),
-            applicationId,
-            object :
-                CFSDKResponseCallback<VersionConfig> {
-                override fun onSuccess(versionConfig: VersionConfig) {
-                    Toast.makeText(
-                        this@MainActivity,
-                        "Minimum version is ${versionConfig?.requiredUpdate?.minimumVersion} and  required update is = ${versionConfig?.requiredUpdate?.show}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    binding.tvResponse.text =
-                        "Minimum version is ${versionConfig?.requiredUpdate?.minimumVersion} and  required update is = ${versionConfig?.requiredUpdate?.show}"
-                }
-
-                override fun onFailure(error: Throwable?) {
-                    Toast.makeText(
-                        this@MainActivity,
-                        (error as ChangebankResponse)?.message,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            })
-    }
-
     fun callAuthCode() {
         CFSDKCall.getAuthCode(
+            binding.edtBaseUrl.text.toString(),
             binding.edtCardHolderId.text.toString(),
-            "1.0.1.1",
-            "12345678901234567890123456789012",
+            "1.0.11",
             object : CFSDKResponseCallback<AuthCodeResponse> {
                 override fun onSuccess(response: AuthCodeResponse) {
                     Toast.makeText(
@@ -100,8 +74,8 @@ class MainActivity : AppCompatActivity() {
                         "Auth Code=" + response.getAuthCode(),
                         Toast.LENGTH_SHORT
                     ).show()
-                    binding.tvResponse.text = "Auth Code=" + response.getAuthCode()
-                    binding.edtAuthCode.visibility = View.VISIBLE
+                    binding.edtAuthCode.setText(response.getAuthCode())
+                    binding.inputAuthCode.visibility = View.VISIBLE
                     binding.btnConfigureSDK.visibility = View.VISIBLE
                 }
 
@@ -118,19 +92,18 @@ class MainActivity : AppCompatActivity() {
     fun callAccessToken(authCode: String) {
         CFSDKCall.getAccessToken(
             authCode,
-            "12345678901234567890123456789012",
             object : CFSDKResponseCallback<Session> {
                 override fun onSuccess(response: Session) {
-                    Toast.makeText(
-                        this@MainActivity,
-                        "Access token=" + response.token,
-                        Toast.LENGTH_SHORT
-                    ).show()
                     binding.tvResponse.text = "SDK Configured successfully."
                     binding.btnUserProfile.visibility = View.VISIBLE
                 }
 
                 override fun onFailure(error: Throwable?) {
+                    binding.inputAuthCode.visibility = View.GONE
+                    binding.btnConfigureSDK.visibility = View.GONE
+                    binding.btnUserProfile.visibility = View.GONE
+                    binding.btnCardAccountList.visibility = View.GONE
+                    binding.tvResponse.text = ""
                     Toast.makeText(
                         this@MainActivity,
                         (error as ChangebankResponse)?.message,
@@ -143,7 +116,9 @@ class MainActivity : AppCompatActivity() {
     fun callGetUserProfileData() {
         CFSDKCall.getUserProfileInfo(object : CFSDKResponseCallback<UserProfileResponse> {
             override fun onSuccess(response: UserProfileResponse) {
+                customerNumber = response.customerNumber
                 binding.tvResponse.text = response.toRawString()
+                binding.btnCardAccountList.visibility = View.VISIBLE
             }
 
             override fun onFailure(var1: Throwable?) {
@@ -152,18 +127,19 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun callGetAccountsData() {
-        CFSDKCall.getAccountsData(object : CFSDKResponseCallback<AccountsApiResponse> {
-            override fun onSuccess(response: AccountsApiResponse) {
-                binding.tvResponse.text = "Response \n" + response.toRawString()
-                for (account in response.accounts) {
-                    binding.tvResponse.append(account.toString())
+    fun callGetAccountsData(customerNumber: String) {
+        CFSDKCall.getAccountsData(customerNumber,
+            object : CFSDKResponseCallback<AccountsApiResponse> {
+                override fun onSuccess(response: AccountsApiResponse) {
+                    binding.tvResponse.text = "Response \n" + response.toRawString()
+                    for (account in response.accounts) {
+                        binding.tvResponse.append(account.toString())
+                    }
                 }
-            }
 
-            override fun onFailure(var1: Throwable?) {
+                override fun onFailure(var1: Throwable?) {
 
-            }
-        })
+                }
+            })
     }
 }

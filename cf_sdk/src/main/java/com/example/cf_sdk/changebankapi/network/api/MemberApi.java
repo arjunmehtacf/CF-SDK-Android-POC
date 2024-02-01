@@ -263,8 +263,8 @@ public interface MemberApi {
                                          @HeaderMap Map<String, String> headers,
                                          @Body AuthCodeParameter authCodeParameter);
 
-    @GET(ApiConfig.MEMBER_BASE_ENDPOINT + Endpoints.Member.GET_USER_PROFILE)
-    Single<UserProfileResponse> getUserProfile(@HeaderMap Map<String, String> headers);
+    @GET
+    Single<UserProfileResponse> getUserProfile(@Url String url, @HeaderMap Map<String, String> headers);
 
     @GET(ApiConfig.MEMBER_BASE_ENDPOINT + Endpoints.Member.GET_CARD_DETAILS)
     Single<CardDetailResponse> getCardDetails(@HeaderMap Map<String, String> headers,

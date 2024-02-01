@@ -16,30 +16,27 @@ object CFSDKCall {
 
     // To get the mobile settings related information
     fun getVersionConfig(
-        baseUrl: String,
-        appId: String,
         responseCallback: CFSDKResponseCallback<VersionConfig>,
     ) {
-        return cfsdkProvider.callVersionConfigFunction(baseUrl, appId, responseCallback)
+        return cfsdkProvider.callVersionConfigFunction(responseCallback)
     }
 
     // To authenticate user for authentication
     fun getAuthCode(
+        baseUrl:String,
         cardHolderId: String,
         sdkVersion: String,
-        sdkSessionId: String,
         responseCallback: CFSDKResponseCallback<AuthCodeResponse>,
     ) {
-        return cfsdkProvider.callAuthCode(cardHolderId, sdkVersion, sdkSessionId, responseCallback)
+        return cfsdkProvider.callAuthCode(baseUrl,cardHolderId, sdkVersion, responseCallback)
     }
 
     // To get Access Token from auth code
     fun getAccessToken(
         authCode: String,
-        sdkSessionId: String,
         responseCallback: CFSDKResponseCallback<Session>,
     ) {
-        return cfsdkProvider.callAccessToken(authCode, sdkSessionId, responseCallback)
+        return cfsdkProvider.callAccessToken(authCode, responseCallback)
     }
 
     // To get user profile data
@@ -48,7 +45,7 @@ object CFSDKCall {
     }
 
     // To get account list
-    fun getAccountsData(responseCallback: CFSDKResponseCallback<AccountsApiResponse>){
-        return cfsdkProvider.callGetMemberAccounts(responseCallback)
+    fun getAccountsData(customerNumber:String, responseCallback: CFSDKResponseCallback<AccountsApiResponse>){
+        return cfsdkProvider.callGetMemberAccounts(customerNumber, responseCallback)
     }
 }

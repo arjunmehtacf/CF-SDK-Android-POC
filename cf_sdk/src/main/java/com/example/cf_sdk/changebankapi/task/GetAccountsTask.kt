@@ -26,7 +26,7 @@ import retrofit2.Retrofit
 import java.io.File
 
 
-class GetAccountsTask (val session: Session) :
+class GetAccountsTask(val session: Session, val customerNumber: String) :
     SingleUseCase<Parameters, AccountsApiResponse?>(
         createBackgroundExecutionThread(), createUiExecutionThread(), createErrorHandler()
     ) {
@@ -66,8 +66,10 @@ class GetAccountsTask (val session: Session) :
     }
 
     override fun buildUseCaseObservable(parameters: Parameters): Single<AccountsApiResponse?> {
-        val stringParameters: StringParameters = StringParameters.create("001000001261")
+        val stringParameters: StringParameters = StringParameters.create(customerNumber)
         stringParameters.addHeader(Header.TOKEN, CFSDKConstant.TOEKN_TYPE + " " + session.token)
+        stringParameters.headers.put(CFSDKConstant.X_APPLICATION_ID,CFSDKConstant.APP_ID)
+        stringParameters.headers.put(CFSDKConstant.KEY_BASE_URL,parameters.headers.get(CFSDKConstant.KEY_BASE_URL))
         return mAccountRepository?.getMemberAccounts(stringParameters)!!
     }
 }

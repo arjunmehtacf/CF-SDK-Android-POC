@@ -1,6 +1,7 @@
 package com.example.cf_sdk.changebankapi.source.remote;
 
 
+import com.example.cf_sdk.changebankapi.Endpoints
 import com.example.cf_sdk.changebankapi.model.FingerprintResponse
 import com.example.cf_sdk.defination.response.Session
 import com.example.cf_sdk.changebankapi.model.member.SecurityProfile
@@ -15,6 +16,7 @@ import com.example.cf_sdk.changebankapi.parameter.authentication.TwoFactorParame
 import com.example.cf_sdk.changebankapi.parameter.authentication.UsernameParameters
 import com.example.cf_sdk.defination.response.ChangebankResponse
 import com.example.cf_sdk.changebankapi.source.AuthenticationRepository
+import com.example.cf_sdk.defination.CFSDKConstant
 import com.example.cf_sdk.defination.request.AccessTokenParameter
 
 
@@ -137,8 +139,11 @@ class AuthenticationRemoteDatasource(private val mAuthenticationApi: Authenticat
     }
 
     override fun getAccessToken(accessTokenParameter: AccessTokenParameter?): Single<Session?>? {
-        // todo: Replace url it with new one
-        return mAuthenticationApi.getAccessToken("http://e49.vtxn-qadev.cf-cloud.net:8080/v1/auth/token",accessTokenParameter?.headers,accessTokenParameter)
+        return mAuthenticationApi.getAccessToken(
+            accessTokenParameter?.headers?.get(CFSDKConstant.KEY_BASE_URL) + Endpoints.Auth.AUTHORIZATION_ACCESS_TOKEN,
+            accessTokenParameter?.headers,
+            accessTokenParameter
+        )
     }
 
 

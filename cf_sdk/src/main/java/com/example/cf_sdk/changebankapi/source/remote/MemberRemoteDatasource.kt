@@ -414,7 +414,7 @@ class MemberRemoteDatasource(private val mMemberApi: MemberApi, private val mCac
 
     override fun getAuthCode(authCodeParameter: AuthCodeParameter?): Single<AuthCodeResponse?>? {
         return mMemberApi.getAuthCode(
-            "http://e49.vtxn-qadev.cf-cloud.net:8085/v1/auth/authorize",
+            authCodeParameter?.headers?.get(CFSDKConstant.KEY_BASE_URL)+ Endpoints.Member.AUTHORIZATION_CODE,
             authCodeParameter?.headers,
             authCodeParameter
         )
@@ -435,7 +435,10 @@ class MemberRemoteDatasource(private val mMemberApi: MemberApi, private val mCac
     }
 
     override fun getUserProfile(userProfileParameter: UserProfileParameter?): Single<UserProfileResponse?>? {
-        return mMemberApi.getUserProfile(userProfileParameter!!.headers)
+        return mMemberApi.getUserProfile(
+            userProfileParameter?.headers?.get(CFSDKConstant.KEY_BASE_URL) + Endpoints.Member.GET_USER_PROFILE,
+            userProfileParameter!!.headers
+        )
     }
 
     override fun getCardDetails(cardDetailParameter: CardDetailParameter?): Single<CardDetailResponse?>? {

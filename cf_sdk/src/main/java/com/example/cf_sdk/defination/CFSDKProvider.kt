@@ -7,13 +7,13 @@ import com.example.cf_sdk.defination.response.Session
 import com.example.cf_sdk.defination.response.version.VersionConfig
 
 interface CFSDKProvider {
-    fun callVersionConfigFunction(baseUrl:String, appId:String,responseCallback: CFSDKResponseCallback<VersionConfig>)
+    fun callVersionConfigFunction(responseCallback: CFSDKResponseCallback<VersionConfig>)
 
-    fun callAuthCode(cardHolderId:String, sdkVersion:String, sdkSessionId:String,responseCallback: CFSDKResponseCallback<AuthCodeResponse>)
+    fun callAuthCode(baseUrl: String,cardHolderId:String, sdkVersion:String, responseCallback: CFSDKResponseCallback<AuthCodeResponse>)
 
-    fun callAccessToken(authCode:String, sdkSessionId:String, responseCallback: CFSDKResponseCallback<Session>)
+    fun callAccessToken(authCode:String, responseCallback: CFSDKResponseCallback<Session>)
 
     fun callGetUserProfile(responseCallback: CFSDKResponseCallback<UserProfileResponse>)
 
-    fun callGetMemberAccounts(responseCallback: CFSDKResponseCallback<AccountsApiResponse>)
+    fun callGetMemberAccounts(customerNumber:String, responseCallback: CFSDKResponseCallback<AccountsApiResponse>)
 }

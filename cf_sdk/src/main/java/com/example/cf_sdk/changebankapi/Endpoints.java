@@ -17,6 +17,8 @@ public class Endpoints {
         public static final String RESET_PASSWORD = "authentication/resetPassword";
         public static final String TWO_FACTOR = "authentication/twoFactor";
         public static final String USERNAME_AVAILABILITY = "users/check";
+
+        public static final String AUTHORIZATION_ACCESS_TOKEN = "auth/token";
     }
 
     public static class Member {
@@ -59,6 +61,8 @@ public class Endpoints {
         public static final String INSTANT_CARD_AVAILABLE = "verification/instatcard";
 
         public static final String CHECK_DEPOSIT = "account/checkdeposit/{memberId}";
+
+        public static final String AUTHORIZATION_CODE = "auth/authorize";
     }
 
     public static class Account {

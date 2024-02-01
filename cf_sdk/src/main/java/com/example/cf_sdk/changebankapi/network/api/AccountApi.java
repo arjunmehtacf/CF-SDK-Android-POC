@@ -51,6 +51,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.Streaming;
+import retrofit2.http.Url;
 
 /**
  *
@@ -63,10 +64,9 @@ public interface AccountApi {
     Single<Account> getAccountById(@HeaderMap Map<String, String> headers,
                                    @Path("accountNumber") String accountId);
 
-    @GET(ApiConfig.ACCOUNT_BASE_ENDPOINT + Endpoints.Account.GET_ACCOUNTS)
+    @GET
     @Headers("Content-Type: application/json")
-    Single<AccountsApiResponse> getMemberAccounts(@HeaderMap Map<String, String> headers,
-                                                  @Path("customerNumber") String memberId);
+    Single<AccountsApiResponse> getMemberAccounts(@Url String url, @HeaderMap Map<String, String> headers);
 
     @GET(ApiConfig.ACCOUNT_BASE_ENDPOINT + Endpoints.Account.GET_ACH_ACCOUNTS)
     @Headers("Content-Type: application/json")

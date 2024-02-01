@@ -5,6 +5,7 @@ import com.example.cf_sdk.changebankapi.network.api.AccountApi
 import com.example.cf_sdk.changebankapi.parameter.StringParameters
 import com.example.cf_sdk.defination.response.AccountsApiResponse
 import com.example.cf_sdk.changebankapi.source.datasource.AccountDatasource
+import com.example.cf_sdk.defination.CFSDKConstant
 import io.reactivex.Single
 import java.io.File
 
@@ -19,8 +20,8 @@ class AccountRemoteDatasource(
 
     override fun getMemberAccounts(stringParameters: StringParameters?): Single<AccountsApiResponse?>? {
         return mAccountApi.getMemberAccounts(
-            stringParameters!!.headers,
-            stringParameters.firstString
+            stringParameters?.headers?.get(CFSDKConstant.KEY_BASE_URL) + "customer/"+stringParameters?.firstString+"/cards",
+            stringParameters?.headers
         )
     }
 

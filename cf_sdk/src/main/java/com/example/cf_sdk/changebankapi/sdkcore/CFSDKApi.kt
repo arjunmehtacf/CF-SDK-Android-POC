@@ -27,18 +27,18 @@ import io.reactivex.disposables.Disposable
 class CFSDKApi : CFSDKProvider {
 
     lateinit var session: Session
+    lateinit var sessionId: String
+    lateinit var sdkURL: String
 
     // This function is used to get mobile settings data from server
     override fun callVersionConfigFunction(
-        baseUrl: String,
-        appId: String,
         responseCallback: CFSDKResponseCallback<VersionConfig>,
     ) {
         val settingsHeader = HashMap<String, String>()
-        settingsHeader.put(CFSDKConstant.KEY_BASE_URL, baseUrl)
+        settingsHeader.put(CFSDKConstant.KEY_BASE_URL, sdkURL)
 
         val settingsParameter = SettingsParameter(settingsHeader)
-        settingsParameter.applicationId = appId
+        settingsParameter.applicationId = CFSDKConstant.APP_ID
         VersionConfigTask().execute(object :
             ChangebankSingleObserver<VersionConfig> {
             override fun onSubscribe(d: Disposable) {}
@@ -55,17 +55,21 @@ class CFSDKApi : CFSDKProvider {
 
     // To authenticate user for authentication
     override fun callAuthCode(
+        baseUrl: String,
         cardHolderId: String,
         sdkVersion: String,
-        sdkSessionId: String,
         responseCallback: CFSDKResponseCallback<AuthCodeResponse>,
     ) {
-        val authCodeParameter =
-            AuthCodeParameter(HashMap())
+        sessionId = CFSDKConstant.generateRandomString(32)
+        sdkURL = baseUrl
+        val settingsHeader = HashMap<String?, String?>()
+        settingsHeader.put(CFSDKConstant.KEY_BASE_URL, sdkURL)
+        settingsHeader.put(CFSDKConstant.INSTANCE_NAME_KEY, CFSDKConstant.INSTANCE_NAME_VALUE)
+        val authCodeParameter = AuthCodeParameter(settingsHeader)
         authCodeParameter.cardholderId = cardHolderId
         authCodeParameter.sdkVersion = sdkVersion
-        authCodeParameter.sdkSessionId = sdkSessionId
-        authCodeParameter.addToken("Bearer xL5I9DCkb5jqd9o5iJ2a2MVSkm+OP7IwtrVABfElC9dphvQLWPgkuQEdSRhi0dU0")
+        authCodeParameter.sdkSessionId = sessionId
+        authCodeParameter.addToken(CFSDKConstant.ACCESS_TOKEN_FOR_EX_USER_AUTHORIZATION)
         AuthCodeTask().execute(object : ChangebankSingleObserver<AuthCodeResponse> {
             override fun onSubscribe(d: Disposable) {}
 
@@ -82,15 +86,15 @@ class CFSDKApi : CFSDKProvider {
     // To get Access Token from auth code
     override fun callAccessToken(
         authCode: String,
-        sdkSessionId: String,
         responseCallback: CFSDKResponseCallback<Session>,
     ) {
-        val accessTokenParameter =
-            AccessTokenParameter(HashMap())
+        val settingsHeader = HashMap<String?, String?>()
+        settingsHeader.put(CFSDKConstant.KEY_BASE_URL, sdkURL)
+        val accessTokenParameter = AccessTokenParameter(settingsHeader)
         accessTokenParameter.authCode = authCode
-        accessTokenParameter.sdkSessionId = sdkSessionId
-        accessTokenParameter.addToken("Bearer xL5I9DCkb5jqd9o5iJ2a2MVSkm+OP7IwtrVABfElC9dphvQLWPgkuQEdSRhi0dU0")
-        accessTokenParameter.headers.put(CFSDKConstant.X_APPLICATION_ID,"f4665ee1-f8c1-4111-baa5-e755a2e83320")
+        accessTokenParameter.sdkSessionId = sessionId
+        accessTokenParameter.addToken(CFSDKConstant.ACCESS_TOKEN_FOR_EX_USER_AUTHORIZATION)
+        accessTokenParameter.headers.put(CFSDKConstant.X_APPLICATION_ID, CFSDKConstant.APP_ID)
         AccessTokenTask().execute(object : ChangebankSingleObserver<Session> {
             override fun onSubscribe(d: Disposable) {}
 
@@ -107,33 +111,43 @@ class CFSDKApi : CFSDKProvider {
 
     // To get user profile data
     override fun callGetUserProfile(responseCallback: CFSDKResponseCallback<UserProfileResponse>) {
-        UserProfileTask(session).execute(object : ChangebankSingleObserver<UserProfileResponse>{
-            override fun onSubscribe(d: Disposable) {}
+        val parameters = UserProfileParameter.create()
+        parameters.headers.put(CFSDKConstant.KEY_BASE_URL,sdkURL)
+        parameters.headers.put(CFSDKConstant.X_APPLICATION_ID, CFSDKConstant.APP_ID)
+        UserProfileTask(session).execute(
+            object : ChangebankSingleObserver<UserProfileResponse> {
+                override fun onSubscribe(d: Disposable) {}
 
-            override fun onError(e: Throwable) {
-                responseCallback.onFailure(CFSDKErrorHandler.handleAPIError(e))
-            }
+                override fun onError(e: Throwable) {
+                    responseCallback.onFailure(CFSDKErrorHandler.handleAPIError(e))
+                }
 
-            override fun onSuccess(t: UserProfileResponse) {
-               responseCallback.onSuccess(t)
-            }
-        },
-            UserProfileParameter.create())
+                override fun onSuccess(t: UserProfileResponse) {
+                    responseCallback.onSuccess(t)
+                }
+            },
+            parameters
+        )
     }
 
     // To get member accounts list
-    override fun callGetMemberAccounts(responseCallback: CFSDKResponseCallback<AccountsApiResponse>) {
-        GetAccountsTask(session).execute(object : ChangebankSingleObserver<AccountsApiResponse>{
-            override fun onSubscribe(d: Disposable) {}
+    override fun callGetMemberAccounts(customerNumber:String, responseCallback: CFSDKResponseCallback<AccountsApiResponse>) {
+        val parameters = Parameters.getEmptyParameters(false)
+        parameters.headers.put(CFSDKConstant.KEY_BASE_URL, sdkURL)
+        parameters.headers.put(CFSDKConstant.X_APPLICATION_ID, CFSDKConstant.APP_ID)
+        GetAccountsTask(session,customerNumber).execute(
+            object : ChangebankSingleObserver<AccountsApiResponse> {
+                override fun onSubscribe(d: Disposable) {}
 
-            override fun onError(e: Throwable) {
-                responseCallback.onFailure(CFSDKErrorHandler.handleAPIError(e))
-            }
+                override fun onError(e: Throwable) {
+                    responseCallback.onFailure(CFSDKErrorHandler.handleAPIError(e))
+                }
 
-            override fun onSuccess(t: AccountsApiResponse) {
-                responseCallback.onSuccess(t)
-            }
-        },
-            Parameters.getEmptyParameters(false))
+                override fun onSuccess(t: AccountsApiResponse) {
+                    responseCallback.onSuccess(t)
+                }
+            },
+            parameters
+        )
     }
 }
