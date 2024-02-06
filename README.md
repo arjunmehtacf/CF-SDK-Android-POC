@@ -61,7 +61,7 @@ To integrate the Change Financials SDK POC into any other project please follow 
 3. Add the below dependency in your app level `build.gradle` file in dependency section.
   ```groovy
 dependencies {
-      implementation 'com.changefinancial:sdkpoc:1.0.11'
+      implementation 'com.changefinancial:sdkpoc:1.0.13'
 }
 ```
 4. Add the below supporting dependencies to the app level `build.gradle` file in the dependency section ( It is optional if you already have in your project).
