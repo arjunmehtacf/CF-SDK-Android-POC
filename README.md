@@ -9,6 +9,7 @@ Change Financial SDK POC is a sample SDK in which it have predefined functions w
 3. [Code Examples](#code-examples)
 4. [SDK Functions](#sdk-functions)
    * [User Profile](#user-profile)
+   * [Get Accounts](#get_accounts)
 
 - - - -
 
@@ -115,5 +116,20 @@ CFSDKCall.getUserProfileInfo(object : CFSDKResponseCallback<UserProfileResponse>
                // Show errors message if any using (error as ChangebankResponse)?.message
             }
         })
+```
+
+## Get Accounts
+To get list of accounts you need to pass Customer Number which you get from User Profile response.
+```groovy
+CFSDKCall.getAccountsData(customerNumber,
+            object : CFSDKResponseCallback<AccountsApiResponse> {
+                override fun onSuccess(response: AccountsApiResponse) {
+                    // Use response to get user account list data
+                }
+
+                override fun onFailure(var1: Throwable?) {
+                    // Show errors message if any using (error as ChangebankResponse)?.message
+                }
+            })
 ```
 
