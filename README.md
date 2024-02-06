@@ -16,9 +16,9 @@ Change Financial SDK POC is a sample SDK in which it have predefined functions w
 # Getting Started
 
 ## Release Notes
-* Auth code and Access Token functions are added for external app users.
+* User profile and Get list of accounts function are added to the SDK.
 
-### **Version 1.0.11**
+### **Version 1.0.13**
 
 ## System Requirements
 
